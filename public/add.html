@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Add Amiibo</title>
+
+    <link rel="stylesheet" type="text/css" href="css/amiiboTable.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/divDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/textDesign.css">
+
+  </head>
+  <body>
+	<button class="backButton" type="button" onclick="backPressed()">Back</button>
+
+	<div>
+		<h1 class="textLine_1">Add an Amiibo</h1>
+		
+		<form class="textLine_1">
+			Number:<br>
+	    	<input class="inputText" type="text" id="number">
+	    	<br>
+	    	Name:<br>
+	    	<input class="inputText" type="text" id="name">
+	    	<br>
+	    	Image: *Required*<br>
+	    	<input type="file" accept="image/*" id="image">
+	    	<br>
+	    	Origin:<br>
+	    	<input class="inputText" type="text" id="origin">
+	    	<br>
+	    	Date:<br>
+	    	<input class="inputText" type="text" id="date">
+	    	<br>
+	    	Wave:<br>
+	    	<input class="inputText" type="text" id="wave">
+	    	<br>
+	    	Exclusive:<br>
+	    	<input class="inputText" type="text" id="exclusive">
+	    	<br>
+	    	Description:<br>
+	    	<input class="inputText" type="text" id="description">
+	    	<br>
+	    	Rarity:<br>
+	    	<input class="inputText" type="text" id="rarity">
+	    	<br>
+	    	Have:<br>
+	    	<input class="inputText" type="checkbox" id="have">
+	    	<br>
+	    	<input class="modButton" type="button" value="AddAmiibo" onclick="addAmiibo(authId)">
+		</form> 
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+	<script>
+
+  		// Initialize Firebase with the AmiiboDex specs
+  		var config = {
+    		apiKey: "AIzaSyD3p9hdIYoCSi72wUMbPT-JkIzXPf6Xmrc",
+    		authDomain: "amiibodex.firebaseapp.com",
+    		databaseURL: "https://amiibodex.firebaseio.com",
+    		storageBucket: "amiibodex.appspot.com",
+    		messagingSenderId: "582801923363"
+  		};
+  		firebase.initializeApp(config);
+
+  		var customStorageRef = firebase.storage().ref();
+		// Authenticate user if user is signed in
+		var authId;
+		firebase.auth().onAuthStateChanged(function (user) {
+			if(user) {
+				// User is signed in
+				authId = user.uid;
+			} else {
+				// No user is signed in, then redirect to "index.html"
+				// For security reasons
+				window.location.href='index.html';
+			}
+		});
+
+		// If the Back button is pressed
+		function backPressed() {
+			firebase.auth().onAuthStateChanged(function (user) {
+        		if(user) {
+            			// User is signed in
+				window.location.href='indexsignedin.html';
+        		} else {
+            			// No user is signed in
+        		}
+    		});
+		}
+
+	</script>
+	<script type="text/javascript" src="js/add.js"></script>
+  </body>
+</html>

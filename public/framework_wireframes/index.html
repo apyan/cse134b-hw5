@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>AmiiboDex Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="stylesheet/amiiboTable.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/textDesign.css">
+  </head>
+  <body>
+  
+	<div>
+		<h1>AmiiboDex</h1>
+		<div class="signButtons">
+			<button type="button" onclick="location.href='signup.html'" class="btn btn-default btn-lg">Sign Up</button>
+			<button type="button" onclick="location.href='signin.html'" class="btn btn-default btn-lg">Sign In</button>
+		</div>
+		<a href="team.html">Team</a><br>
+		<a href="../index.html">To vanilla CSS wireframes</a>
+	</div>
+
+	<div>
+		<h1>Welcome, guest</h1>
+	</div>
+	<div title="To add, delete, or edit your Amiibo list you must be logged in.">
+		<button type="button" onclick="location.href='add.html'" class="btn btn-default btn-lg" disabled="disabled">Add</button>
+		<button type="button" onclick="location.href='indexdelete.html'" class="btn btn-default btn-lg btn-danger" disabled="disabled">Delete</button>
+		<button type="button" onclick="location.href='indexedit.html'" class="btn btn-default btn-lg" disabled="disabled">Edit</button><br><br>
+	</div>
+	<caption>Your Amiibos</caption>
+	<table class="table table-striped table-bordered table-hover ">
+		<thead class="thead-inverse">
+			<tr class="tableHeader">
+				<th>Number</th>
+				<th>Name</th>
+				<th>Image</th>
+				<th>Game Origin</th>
+				<th>Date Release</th>
+				<th>Wave</th>
+				<th>Exclusive</th>
+				<th>Description</th>
+				<th>Rarity</th>
+				<th>Have</th>
+			</tr>
+		</thead>
+		<tr>
+		<tbody>
+			<td>1</td>
+			<td>Mario</td>
+			<!-- <td>Image</td> -->
+			<td><img class="img-responsive" src="amiiboo-images/01_mario.jpg"> </td>
+			<td>Super Mario</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Mario amiibo</td>
+			<td>Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>Peach</td>
+			<!-- <td>Image</td> -->
+			<td><img class="img-responsive" src="amiiboo-images/02_peach.jpg"></td>
+			<td>Super Mario</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Peach amiibo</td>
+			<td>Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Yoshi</td>
+			<!-- <td>Image</td> -->
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><img class="img-responsive" src="amiiboo-images/03_yoshi.jpg"></td>
+			<td>Yoshi</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Yoshi amiibo</td>
+			<td>Uncommon</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Donkey Kong</td>
+			<!-- <td>Image</td> -->
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><img class="img-responsive" src="amiiboo-images/04_donkey_kong.jpg"></td>
+			<td>Donkey Kong</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Donkey Kong amiibo</td>
+			<td>Semi-Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Link</td>
+			<!-- <td>Image</td> -->
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><img class="img-responsive" src="amiiboo-images/05_link.jpg"></td>
+			<td>The Legend of Zelda</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Link amiibo</td>
+			<td>Uncommon</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Fox</td>
+			<!-- <td>Image</td> -->
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><img class="img-responsive" src="amiiboo-images/06_fox.jpg"></td>
+			<td>Star Fox</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Star Fox amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Samus</td>
+			<!-- <td>Image</td> -->
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><img class="img-responsive" src="amiiboo-images/07_samus.jpg"></td>
+			<td>Metroid</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Samus amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>Wii Fit Trainer</td>
+			<td><img class="img-responsive" src="amiiboo-images/08_wii_fit_trainer.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Wii Fit</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Wii Fit amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>Villager</td>
+			<td><img class="img-responsive" src="amiiboo-images/09_villager.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Animal Crossing</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Villager amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>Pikachu</td>
+			<td><img class="img-responsive" src="amiiboo-images/10_pikachu.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Pokemon</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Pikachu amiibo</td>
+			<td>Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>Kirby</td>
+			<td><img class="img-responsive" src="amiiboo-images/11_kirby.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Kirby</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Kirby amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>Marth</td>
+			<td><img class="img-responsive" src="amiiboo-images/12_marth.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Fire Emblem</td>
+			<td>11/ 21/ 2014</td>
+			<td>1</td>
+			<td></td>
+			<td>Marth amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td>Zelda</td>
+			<td><img class="img-responsive" src="amiiboo-images/13_zelda.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>The Legend of Zelda</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Zelda amiibo</td>
+			<td>Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>14</td>
+			<td>Diddy Kong</td>
+			<td><img class="img-responsive" src="amiiboo-images/14_diddy_kong.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Donkey Kong</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Diddy Kong amiibo</td>
+			<td>Uncommon</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>Luigi</td>
+			<td><img class="img-responsive" src="amiiboo-images/15_luigi.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Super Mario</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Luigi amiibo</td>
+			<td>Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>Little Mac</td>
+			<td><img class="img-responsive" src="amiiboo-images/16_little_mac.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Punch-Out!!</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Little Mac amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>17</td>
+			<td>Pit</td>
+			<td><img class="img-responsive" src="amiiboo-images/17_pit.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Kid Icarus</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Pit amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>18</td>
+			<td>Captain Falcon</td>
+			<td><img class="img-responsive" src="amiiboo-images/18_captain_falcon.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>F-Zero</td>
+			<td>12/ 14/ 2014</td>
+			<td>2</td>
+			<td></td>
+			<td>Captain Falcon amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>19</td>
+			<td>Rosalina & Luma</td>
+			<td><img class="img-responsive" src="amiiboo-images/19_rosalina_luma.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Super Mario</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td>Target</td>
+			<td>Rosalina & Luma amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>20</td>
+			<td>Bowser</td>
+			<td><img class="img-responsive" src="amiiboo-images/20_bowser.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Super Mario</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Bowser amiibo</td>
+			<td>Semi-Common</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>21</td>
+			<td>Lucario</td>
+			<td><img class="img-responsive" src="amiiboo-images/21_lucario.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Pokemon</td>
+			<td>02 /01/ 2015</td>
+			<td>3</td>
+			<td>Toys "R" Us</td>
+			<td>Lucario amiibo</td>
+			<td>Semi-Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>22</td>
+			<td>Toon Link</td>
+			<td><img class="img-responsive" src="amiiboo-images/22_toon_link.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>The Legend of Zelda</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Toon Link amiibo</td>
+			<td>Semi-Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>23</td>
+			<td>Sheik</td>
+			<td><img class="img-responsive" src="amiiboo-images/23_sheik.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>The Legend of Zelda</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Sheik amiibo</td>
+			<td>Semi-Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>24</td>
+			<td>Ike</td>
+			<td><img class="img-responsive" src="amiiboo-images/24_ike.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Fire Emblem</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Ike amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>25</td>
+			<td>Shulk</td>
+			<td><img class="img-responsive" src="amiiboo-images/25_shulk.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Xenoblade Chronicles</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td>GameStop</td>
+			<td>Shulk amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>26</td>
+			<td>Sonic</td>
+			<td><img class="img-responsive" src="amiiboo-images/26_sonic.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Sonic</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Sonic amiibo</td>
+			<td>Semi-Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>27</td>
+			<td>Mega Man</td>
+			<td><img class="img-responsive" src="amiiboo-images/27_mega_man.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Mega Man</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>Mega Man amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>28</td>
+			<td>King Dedede</td>
+			<td><img class="img-responsive" src="amiiboo-images/28_king_dedede.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Kirby</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td></td>
+			<td>King Dedede amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>29</td>
+			<td>Meta Knight</td>
+			<td><img class="img-responsive" src="amiiboo-images/29_meta_knight.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Kirby</td>
+			<td>02/ 01/ 2015</td>
+			<td>3</td>
+			<td>Best Buy</td>
+			<td>Meta Knight amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>30</td>
+			<td>Robin</td>
+			<td><img class="img-responsive" src="amiiboo-images/30_robin.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Fire Emblem</td>
+			<td>05/ 29/ 2015</td>
+			<td>4</td>
+			<td></td>
+			<td>Robin amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>31</td>
+			<td>Lucina</td>
+			<td><img class="img-responsive" src="amiiboo-images/31_lucina.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Fire Emblem</td>
+			<td>05/ 29/ 2015</td>
+			<td>4</td>
+			<td></td>
+			<td>Lucina amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>32</td>
+			<td>Wario</td>
+			<td><img class="img-responsive" src="amiiboo-images/32_wario.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Wario</td>
+			<td>05/ 29/ 2015</td>
+			<td>4</td>
+			<td></td>
+			<td>Wario amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>33</td>
+			<td>Charizard</td>
+			<td><img class="img-responsive" alt="Responsive image" src="amiiboo-images/33_charizard.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>Pokemon</td>
+			<td>05/ 29/ 2015</td>
+			<td>4</td>
+			<td></td>
+			<td>Charizard amiibo</td>
+			<td>Rare</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td>34</td>
+			<td>Ness</td>
+			<td><img class="img-responsive" src="amiiboo-images/34_ness.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td>EarthBound</td>
+			<td>05/ 29/ 2015</td>
+			<td>4</td>
+			<td>GameStop</td>
+			<td>Ness amiibo</td>
+			<td>Unicorn</td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+	</tbody>
+
+	</table>
+
+  </body>
+</html>

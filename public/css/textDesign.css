@@ -1,0 +1,45 @@
+/* @import url(http://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+@import url(http://weloveiconfonts.com/api/?family=entypo); */
+
+.titleHeader {
+  display:inline;
+  float: left;
+  font-family: "Coda", sans-serif;
+}
+
+.textLine {
+  font-family: "Coda", sans-serif;
+  margin-left: 1.5em;
+}
+
+.textLine_1 {
+  font-family: "Coda", sans-serif;
+  margin-left: 1.1em;
+}
+
+.textLine_2 {
+  font-family: "Coda", sans-serif;
+  margin-left: 1.0em;
+}
+
+.greetLine {
+  font-family: "Coda", sans-serif;
+  display:inline;
+  float: left;
+}
+
+.teamLine {
+  font-family: "Coda", sans-serif;
+  display:inline;
+  float: right;
+}
+
+.inputText {
+  width: 20%;
+  min-width:100px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: 1.15em;
+  border: 0.12em solid gray;
+  border-radius: 0.22em;
+}

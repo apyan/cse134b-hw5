@@ -1,0 +1,46 @@
+/* @import url(http://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+@import url(http://weloveiconfonts.com/api/?family=entypo); */
+
+.mainTable {
+  width: 96%; 
+  margin-left: 2%; 
+  margin-right: 2%;
+  text-align: center;
+  display: block;
+}
+
+.directionBar {
+  background-color: #0e0e0b;
+  width: 100%; 
+}
+
+th {
+  width: 9.6%;
+  font-size: 1.00em;
+  font-family: "Coda", sans-serif;
+  height: 1.95em;
+  color: #fff;
+  background-color: #0e0e0b;
+}
+
+th:hover {
+  background-color: #565643;
+}
+
+.inputTextNumber {
+  width: 90%;
+}
+
+td {
+  height: 3.00em;
+  font-size: 0.90em;
+  font-family: "Coda", sans-serif;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.0em;
+}
+
+.amiiboImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

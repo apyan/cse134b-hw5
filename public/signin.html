@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+
+    <link rel="stylesheet" type="text/css" href="css/amiiboTable.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/divDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/textDesign.css">
+
+  </head>
+  <body>
+
+	<div>
+		<button class="backButton" type="button" onclick="location.href='index.html'">Back</button>
+		<h1 class="textLine_1">Sign In</h1>
+		
+		<form class="textLine_1">
+	    	<!-- Username:<br>
+	    	<input id="username" class="inputText" type="text" name="username">
+	    	<br> -->
+		E-Mail Address:<br>
+	    	<input id="email" class="inputText" type="email" name="email">
+	    	<br>
+	    	Password:<br>
+	    	<input id="password" class="inputText" type="password" name="password">
+	    	<br><br>
+	    	<!--change to submit-->
+	    	<input id="sign-in" class="modButton" type="button" value="Sign In" onclick="signInUserData()">
+		<br><p id="sign-in-status"> </p>
+		<h3 class="textLine_1">- Or sign in with Google -</h3>
+		<!-- Google Sign-In -->
+		<input id="google-sign-in" class="googleButton" type="button" value=" " onclick="google_login_in()">
+		</form>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+	<script>
+
+  		// Initialize Firebase with the AmiiboDex specs
+  		var config = {
+    			apiKey: "AIzaSyD3p9hdIYoCSi72wUMbPT-JkIzXPf6Xmrc",
+    			authDomain: "amiibodex.firebaseapp.com",
+    			databaseURL: "https://amiibodex.firebaseio.com",
+    			storageBucket: "amiibodex.appspot.com",
+    			messagingSenderId: "582801923363"
+  		};
+  		firebase.initializeApp(config);
+
+		// Sign-In Button is pressed
+		function signInUserData(){
+			// Collect values from the page
+			//var username = document.querySelector('#username').value;
+			var email = document.querySelector('#email').value;
+			var password = document.querySelector('#password').value;
+
+			// Sign-In User Authentication
+			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+				console.log(error.code);
+				console.log(error.message);
+				document.getElementById("sign-in-status").innerHTML = "Error: " + error.message;
+			});
+
+			// If there is a user session going on, redirect to "indexsignedin.html"
+			firebase.auth().onAuthStateChanged(function (user) {
+				if(user) {
+					// User is signed in
+					window.location.href='indexsignedin.html';
+				}
+			});
+		}
+
+		// Google Login Button
+		function google_login_in(){
+			var provider = new firebase.auth.GoogleAuthProvider(); 
+			provider.addScope('https://www.googleapis.com/auth/plus.login');
+			firebase.auth().signInWithPopup(provider).then(function(result) {
+				var token = result.credential.accessToken;
+				var user = result.user;
+			}).catch(function(error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				var email = error.email;
+				var credential = error.credential;
+			});
+		}
+
+		// Authenticate user if user is signed in
+		firebase.auth().onAuthStateChanged(function (user) {
+			if(user) {
+				var user = firebase.auth().currentUser;
+				location.href = "indexsignedin.html";
+			}
+    		});
+
+	</script>
+  </body>
+</html>

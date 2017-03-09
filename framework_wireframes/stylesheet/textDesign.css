@@ -1,0 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway|Varela+Round|Coda);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+.titleHeader {
+  display:inline;
+  float: left;
+}
+
+.signButtons {
+  display:inline;
+  float: right;
+}

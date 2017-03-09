@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>AmiiboDex Home - Edit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="stylesheet/amiiboTable.css">
+  </head>
+  <body>
+  	<button type="button" onclick="location.href='index.html'">Back</button>
+	<div>
+		<h1>AmiiboDex</h1>
+		<a href="team.html">Team</a><br>
+		<a href="test.html">Test Checklist</a>
+	</div>
+
+	<div class="form-group text-center">
+		<h1>Make changes to your list</h1>
+		<button type="button" onclick="location.href='indexsignedin.html'" class="btn btn-default btn-lg btn-danger">Make These Edits</button>
+	</div>
+
+	<table class="table table-striped table-bordered table-hover table-responsive">
+	<caption>Your Amiibos</caption>
+		<thead>
+		<tr>
+			<th>Number</th>
+			<th>Name</th>
+			<th>Image</th>
+			<th>Game Origin</th>
+			<th>Date Release</th>
+			<th>Wave</th>
+			<th>Exclusive</th>
+			<th>Description</th>
+			<th>Rarity</th>
+			<th>Have</th>
+		</tr>
+		</thead>
+		<tr>
+			<td><input type="text" name="number" value="1"></td>
+			<td><input type="text" name="name" value="Mario"></td>
+			<td><img class="img-responsive" src="amiiboo-images/01_mario.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Super Mario"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Mario amiibo"></td>
+			<td><input type="text" name="Rarity" value="Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="2"></td>
+			<td><input type="text" name="name" value="Peach"></td>
+			<td><img class="img-responsive" src="amiiboo-images/02_peach.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Super Mario"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Peach amiibo"></td>
+			<td><input type="text" name="Rarity" value="Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="3"></td>
+			<td><input type="text" name="name" value="Yoshi"></td>
+			<td><img class="img-responsive" src="amiiboo-images/03_yoshi.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Yoshi"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Yoshi amiibo"></td>
+			<td><input type="text" name="Rarity" value="Uncommon"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="4"></td>
+			<td><input type="text" name="name" value="Donkey Kong"></td>
+			<td><img class="img-responsive" src="amiiboo-images/04_donkey_kong.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Donkey Kong"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Donkey Kong amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="5"></td>
+			<td><input type="text" name="name" value="Link"></td>
+			<td><img class="img-responsive" src="amiiboo-images/05_link.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="The Legend of Zelda"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Link amiibo"></td>
+			<td><input type="text" name="Rarity" value="Uncommon"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="6"></td>
+			<td><input type="text" name="name" value="Fox"></td>
+			<td><img class="img-responsive" src="amiiboo-images/06_fox.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Star Fox"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Star Fox amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="7"></td>
+			<td><input type="text" name="name" value="Samus"></td>
+			<td><img class="img-responsive" src="amiiboo-images/07_samus.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Metroid"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Samus amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="8"></td>
+			<td><input type="text" name="name" value="Wii Fit Trainer"></td>
+			<td><img class="img-responsive" src="amiiboo-images/08_wii_fit_trainer.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Wii Fit"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Wii Fit amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="9"></td>
+			<td><input type="text" name="name" value="Villager"></td>
+			<td><img class="img-responsive" src="amiiboo-images/09_villager.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Animal Crossing"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Villager amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr><tr>
+			<td><input type="text" name="number" value="10"></td>
+			<td><input type="text" name="name" value="Pikachu"></td>
+			<td><img class="img-responsive" src="amiiboo-images/10_pikachu.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Pokemon"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Pikachu amiibo"></td>
+			<td><input type="text" name="Rarity" value="Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="11"></td>
+			<td><input type="text" name="name" value="Kirby"></td>
+			<td><img class="img-responsive" src="amiiboo-images/11_kirby.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Kirby"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Kirby amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="12"></td>
+			<td><input type="text" name="name" value="Marth"></td>
+			<td><img class="img-responsive" src="amiiboo-images/12_marth.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Fire Emblem"></td>
+			<td><input type="text" name="date" value="11/21/2014"></td>
+			<td><input type="text" name="wave" value="1"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Marth amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="13"></td>
+			<td><input type="text" name="name" value="Zelda"></td>
+			<td><img class="img-responsive" src="amiiboo-images/13_zelda.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="The Legend of Zelda"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Zelda amiibo"></td>
+			<td><input type="text" name="Rarity" value="Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="14"></td>
+			<td><input type="text" name="name" value="Diddy Kong"></td>
+			<td><img class="img-responsive" src="amiiboo-images/14_diddy_kong.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Donkey Kong"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Diddy Kong amiibo"></td>
+			<td><input type="text" name="Rarity" value="Uncommon"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="15"></td>
+			<td><input type="text" name="name" value="Luigi"></td>
+			<td><img class="img-responsive" src="amiiboo-images/15_luigi.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Super Mario"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Luigi amiibo"></td>
+			<td><input type="text" name="Rarity" value="Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="16"></td>
+			<td><input type="text" name="name" value="Little Mac"></td>
+			<td><img class="img-responsive" src="amiiboo-images/16_little_mac.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Punch-Out!!!"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Little Mac amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="17"></td>
+			<td><input type="text" name="name" value="Pit"></td>
+			<td><img class="img-responsive" src="amiiboo-images/17_pit.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Kid Icarus"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Pit amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="18"></td>
+			<td><input type="text" name="name" value="Captain Falcon"></td>
+			<td><img class="img-responsive" src="amiiboo-images/18_captain_falcon.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="F-Zero"></td>
+			<td><input type="text" name="date" value="12/14/2014"></td>
+			<td><input type="text" name="wave" value="2"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Captain Falcon amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="19"></td>
+			<td><input type="text" name="name" value="Rosalina & Luma"></td>
+			<td><img class="img-responsive" src="amiiboo-images/19_rosalina_luma.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Super Mario"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value="Target"></td>
+			<td><input type="text" name="description" value="Rosalina & Luma amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="20"></td>
+			<td><input type="text" name="name" value="Bowser"></td>
+			<td><img class="img-responsive" src="amiiboo-images/20_bowser.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Super Mario"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Bowser amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Common"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="21"></td>
+			<td><input type="text" name="name" value="Lucario"></td>
+			<td><img class="img-responsive" src="amiiboo-images/21_lucario.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Pokemon"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value="Toys &quot;R&quot; Us"></td>
+			<td><input type="text" name="description" value="Lucario amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="22"></td>
+			<td><input type="text" name="name" value="Toon Link"></td>
+			<td><img class="img-responsive" src="amiiboo-images/22_toon_link.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="The Legend of Zelda"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Toon Link amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="23"></td>
+			<td><input type="text" name="name" value="Sheik"></td>
+			<td><img class="img-responsive" src="amiiboo-images/23_sheik.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="The Legend of Zelda"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Sheik amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="24"></td>
+			<td><input type="text" name="name" value="Ike"></td>
+			<td><img class="img-responsive" src="amiiboo-images/24_ike.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Fire Emblem"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Ike amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="25"></td>
+			<td><input type="text" name="name" value="Shulk"></td>
+			<td><img class="img-responsive" src="amiiboo-images/25_shulk.jpg"><input type="file" id="image" accept="image/*"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Xenoblade Chronicles"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value="GameStop"></td>
+			<td><input type="text" name="description" value="Shulk amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="26"></td>
+			<td><input type="text" name="name" value="Sonic"></td>
+			<td><img class="img-responsive" src="amiiboo-images/26_sonic.jpg"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Sonic"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Sonic amiibo"></td>
+			<td><input type="text" name="Rarity" value="Semi-Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="27"></td>
+			<td><input type="text" name="name" value="Mega Man"></td>
+			<td><img class="img-responsive" src="amiiboo-images/27_mega_man.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Mega Man"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Mega Man amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="28"></td>
+			<td><input type="text" name="name" value="King Dedede"></td>
+			<td><img class="img-responsive" src="amiiboo-images/28_king_dedede.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Kirby"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="King Dedede amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="29"></td>
+			<td><input type="text" name="name" value="Meta Knight"></td>
+			<td><img class="img-responsive" src="amiiboo-images/29_meta_knight.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Kirby"></td>
+			<td><input type="text" name="date" value="02/01/2015"></td>
+			<td><input type="text" name="wave" value="3"></td>
+			<td><input type="text" name="exclusive" value="Best Buy"></td>
+			<td><input type="text" name="description" value="Meta Knight amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="30"></td>
+			<td><input type="text" name="name" value="Robin"></td>
+			<td><img class="img-responsive" src="amiiboo-images/30_robin.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Fire Emblem"></td>
+			<td><input type="text" name="date" value="05/29/2015"></td>
+			<td><input type="text" name="wave" value="4"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Robin amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="31"></td>
+			<td><input type="text" name="name" value="Lucina"></td>
+			<td><img class="img-responsive" src="amiiboo-images/31_lucina.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Fire Emblem"></td>
+			<td><input type="text" name="date" value="05/29/2015"></td>
+			<td><input type="text" name="wave" value="4"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Lucina amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="32"></td>
+			<td><input type="text" name="name" value="Wario"></td>
+			<td><img class="img-responsive" src="amiiboo-images/32_wario.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Wario"></td>
+			<td><input type="text" name="date" value="05/29/2015"></td>
+			<td><input type="text" name="wave" value="4"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Wario amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="33"></td>
+			<td><input type="text" name="name" value="Charizard"></td>
+			<td><img class="img-responsive" alt="Responsive image" src="amiiboo-images/33_charizard.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="Pokemon"></td>
+			<td><input type="text" name="date" value="05/29/2015"></td>
+			<td><input type="text" name="wave" value="4"></td>
+			<td><input type="text" name="exclusive" value=""></td>
+			<td><input type="text" name="description" value="Charizard amiibo"></td>
+			<td><input type="text" name="Rarity" value="Rare"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="number" value="34"></td>
+			<td><input type="text" name="name" value="Ness"></td>
+			<td><img class="img-responsive" src="amiiboo-images/34_ness.jpg"><input type="file" id="image" accept="image/*"></td>
+			<!--<td><img src="https://images-na.ssl-images-amazon.com/images/I/61aYlctXc8L._AC_SX430_.jpg"></td>-->
+			<td><input type="text" name="origin" value="EarthBound"></td>
+			<td><input type="text" name="date" value="05/29/2015"></td>
+			<td><input type="text" name="wave" value="4"></td>
+			<td><input type="text" name="exclusive" value="GameStop"></td>
+			<td><input type="text" name="description" value="Ness amiibo"></td>
+			<td><input type="text" name="Rarity" value="Unicorn"></td>
+			<td><input type="checkbox" name="have"></td>
+		</tr>
+	</table>
+
+  </body>
+</html>

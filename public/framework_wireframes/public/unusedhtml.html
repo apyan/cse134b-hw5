@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <base href = "images" target = "_blank"> <!-- img srcs on this html file no longer need to specifc the images directory and all hyperlinks will not need to specify
+  _blank to indicate opening up new window --> 
+    <meta charset="UTF-8">
+    <title>Testing Unused HTML Tags</title>
+    <link rel="stylesheet" type="text/css" href="theme.css"> <!-- used to link to style sheet -->
+    <style>
+    h3 { color : green; }
+    </style>
+</head>
+
+<body>
+<p> This creates a paragraph separated by newline by the &lt;p&gt; tag</p>
+
+<p>See? Separated by new line </p>
+<hr>
+<p>Check out how the &lt;hr&gt; tag is used between the paragraph above this one and this paragraph</p>
+<pre>Wow look at this text, this was made with the &lt;pre&gt; tag which preserves
+stuff like line breaks      tabs and        spaces! Written in Courier by 
+
+default (wow preserves new line as well)</pre>
+
+<p>My attempt at quoting myself: </p>
+<blockquote>"As you can see, this is the &lt;blockquote&gt; in action. This indents the
+text to look like you're quoting someone" <br>
+<cite>-Mark Santa Presca (cited using &lt;cite&gt;)</cite></blockquote>
+
+<p> An ordered list of the top 4 NBA all time shooters using &lt;ol&gt; tag with each entry inputted using the &lt;li&gt; tag</p>
+<ol>
+  <li> Kareem Abdul-Jabbar </li>
+  <li> Karl Malone </li>
+  <li> Kobe Bryant </li>
+  <li> Michael Jordan </li>
+</ol>
+
+<p> Now for to an unordered list of things I like using the &lt;ul&gt; tag </p>
+<ul>
+  <li> Pizza </li>
+  <li> Ice Cream </li>
+  <li> CSE 134B </li>
+</ul>
+
+<p>How about we make some descriptive lists using the &lt;dl&gt; tag and &lt;dt&gt; and &lt;dd&gt; as list descriptors</p>
+<dl> 
+  <dt>UCSD</dt>
+  <dd>University of California, San Diego</dd>
+  <dt>UCLA</dt>
+  <dd>University of California, Los Angeles</dd>
+</dl>
+
+<p>I'll showcase an image of ninja using the &lt;img&gt; tag as a well making it a figure with &lt;figure&gt;</p>
+<figure>
+  <img src = "images/ninja.jpg"> 
+  <figcaption>Fig1. This is a caption of this ninja image I found using &lt;figcaption&gt;</figcaption>
+</figure>
+
+<em>I'm emphasized by the &lt;em&gt; tag</em><br>
+<strong>I'm strong like the &lt;strong&gt; tag</strong><br>
+<small>I'm kinda tiny relative to the rest of the text here made by the &lt;small&gt; tag</small><br>
+<s>Strike me out with the &lt;s&gt; tag</s><br>
+<q>Let's make this a quotation using &lt;q&gt;</q><br>
+
+
+
+
+
+<p>If you hover over <abbr title = "National Basketball Association">NBA</abbr>, you'll see what it stands for (made using &lt;abbr&gt;)</p>
+
+<code> print "Hello World!" ; # You can write computer code in text using the &lt;code&gt; tag </code>
+<p>Below is the output of that line of code shown using the &lt;sample&gt; tag</p>
+<samp>Hello World!</samp>
+<p>Also below is the keyboard input you would use to run this code in python using &lt;kbd&gt;</p>
+<kbd> python HelloWorld.py </kbd>
+<p>Let's create a <var>variable</var> using the &lt;var&gt; tag</p>
+
+<p>The formula for the area of a square is s<sup>2</sup> where s is a side length (using &lt;sup&gt;)</p>
+<p>We can give some subscripts as well. x<sub>1</sub> (using &lt;sub&gt;)</p>
+
+<p>Let's play with some legacy tags: <i>italics</i> <b>bold</b> <u>underline</u> (done with &lt;i&gt;, &lt;b&gt;, &lt;u&gt;)</p>
+
+<mark>HIGHLIGHT ALL THE THINGS with &lt;mark&gt;</mark><br>
+
+<ruby>
+ <rb>旧</rb>
+ <rb>金</rb>
+ <rb>山</rb>
+ <rt>jiù</rt>
+ <rt>jīn</rt>
+ <rt>shān</rt>
+ <rtc><rp>San Francisco</rp>
+ </rtc>
+</ruby>
+
+<p>Try to shrink your browser window and look at how this huge chain of verys <wbr>veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery <wbr>will be broken into 
+a line break 
+</p>
+
+<p>I love the <del>Golden State Warriors</del> <ins>LA Lakers</ins>! I made this using &lt;del&gt; and &lt;ins&gt; </p>
+
+<p> The &lt;iframe&gt; tag makes it possible to display a webpage within another webage (look at our team page!) </p> 
+<iframe src = "team.html"></iframe>
+
+<p> You can embed media into a page using the &lt;embed&gt; tag </p>
+<embed src = "images/shaq.gif">
+
+<p>With Time: October 31 is <time datetime="2008-10-31 20:00">Halloween</time>!</p>
+<p> Do note that the &lt;time&gt; does not do anything for formatting </p>
+<textarea>This is a textarea made with &lt;textarea&gt;. It acts as a textbox to descibe something or can be used to pipe input elsewhere</textarea>
+
+<h3> Wow check out this use of&lt;style&gt;, which makes all &lt;h3s&gt; turn their text green!!! </h3>
+
+<p> If you check this paragraph, I can make <span style = "color:crimson">this part of this paragraph crimson</span> wow so cool I did this using &lt;span&gt;</p>
+
+<p> I can make a drop down box using &lt;select&gt; with choices made with &lt;option&gt; and separate options using &lt;optgroup&gt;.</p>
+
+<select>
+  <optgroup label = "Fruits">
+    <option>Apples</option>
+    <option>Oranges</option>
+    <option>Bananas</option>
+    <option>Strawberries</option>
+  </optgroup>
+  
+  <optgroup label = "Vegetables">
+    <option>Brocolli</option>
+    <option>Carrot</option>
+    <option>Cauliflower</option>
+    <option>Green Beans</option>
+  </optgroup>
+</select>
+
+<section>
+<h3>This is a &lt;h3&gt; header</h3>
+  <p>I can partition areas of a document such as this paragraph from the rest of the document using the &lt;section&gt; tag.<br> Also notice that the &lt;h3&gt; is green like the other one due to the &lt;stlye&gt; tag.<br>
+  It's really useful for making organized text areas!</p>
+</section>
+
+<p> We can make a visual progress bar using &lt;progress&gt; </p>
+Completion of HW2 <progress value="75" max="100"></progress><br>
+
+
+<p>This is a class section of pie data:</p>
+
+<p>A main section for OS articles:</p>
+
+<main style="background-color:gray;">
+  <nav>
+  <article>
+    <h3>Windows 7</h3>
+    <p>Good.</p>
+  </article>
+  <article>
+    <h3>Windows 8</h3>
+    <p>Ew!</p>
+  </article>
+  </nav>
+</main>
+
+
+<p>The address of the University of California is </p> <address>9500 Gilman Dr, La Jolla, CA 92093</address> <p>which I made using the &lt;address&gt;</p>
+
+<p>Click either the cat or the dog to google search for cats or dogs. I created this using the &lt;area&gt; tag to make an image redirect to a link.</p>
+<img src="images/catAndDog.jpg" width="145" height="126" usemap="#planetmap" alt="n/a">
+<map name="planetmap">
+  <area shape="rect" coords="0,0,73,126" href="https://www.google.com/#q=cat" alt="n/a">
+  <area shape="rect" coords="74,0,126,126" href="https://www.google.com/#q=dog" alt="n/a">
+</map>
+
+<p>Have you noticed that clicking the images open up new pages, even though we don't have the attribute target="_blank"? This is because we defined
+in the header of this html page that all links will open a new tag using the &lt;base&gt; tag.</p>
+
+<p>This article was created using the &lt;article&gt; tag. And we can make a header for this article using &lt;header&gt;</p>
+<article>
+  <header>
+    <h1>Interesting Article Title</h1>
+  </header>
+  <p>Interesting article content. Wow this is so interesting.</p>
+</article>
+
+<p>This sentence uses the &lt;aside&gt; tag. </p>
+  <aside>
+    <h4>Note: Sentence means a set of words that is complete in itself, typically containing a subject and predicate</h4>
+  </aside>
+
+<p>Shelter - by Porter Robinson and Madeon. Hit the play button to listen to this song. This was made using the &lt;audio&gt; tag. This does not autoplay due to the &lt;param&gt; tag</p><br>
+  <audio controls>
+    <source src="images/Shelter.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+
+<p>Languages that read right to left (like Arabic) use the &lt;bdi&gt; (bi-direction isolation) tag to correctly format a certain part.</p><br>
+Using the &lt;bdi&gt; tag
+  <ul>
+    <li>User <bdi>hrefs</bdi>: 60 points</li>
+    <li>User <bdi>jdoe</bdi>: 80 points</li>
+    <li>User <bdi>إيان</bdi>: 90 points</li>
+  </ul>
+  Not using the &lt;bdi&gt; tag
+  <ul>
+    <li>User hrefs: 60 points</li>
+    <li>User jdoe: 80 points</li>
+    <li>User إيان: 90 points</li>
+  </ul>
+
+
+<p>We can use the &lt;bdo&gt; tag to override the current text direction. I use the dir attribute with the &lt;bdo&gt; tag to reverse this sentence. <bdo dir="rtl">This sentence is backwards.</bdo></p> 
+
+<p>We can use the &lt;canvas&gt; tag to create a blank canvas.<br>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+</canvas></p>
+
+<p>With the &lt;col&gt; tag, we are able to manipulate each column in a table like color of each column. The &lt;colgroup&gt; tag can group &lt;col&gt; tags together.</p>
+  <table width="200" border="1">
+    <colgroup>
+      <col style="background-color:red"/>
+      <col style="background-color:blue" />
+      <col style="background-color:yellow" />
+    </colgroup>
+    <tr>
+      <th>ISBN</th>
+      <th>Title</th>
+      <th>Price</th>
+    </tr>
+    <tr>
+      <td>3476896</td>
+      <td>My first HTML</td>
+      <td>$53</td>
+    </tr>
+  </table>
+
+<p>The data-* attribute creates custom data attributes. Here, I create custom data-animal-type attributes.</p>
+  <ul>
+    <li data-animal-type="bird">Owl</li>
+    <li data-animal-type="fish">Salmon</li> 
+    <li data-animal-type="spider">Tarantula</li> 
+  </ul>
+
+<p>We can create a list of data in a drop down menu of browsers. (Note: does not work on Safari)</p>
+  <input list="browsers" name="browser">
+  <datalist id="browsers">
+    <option value="Internet Explorer"></option>
+    <option value="Firefox"></option>
+    <option value="Chrome"></option>
+    <option value="Opera"></option>
+    <option value="Safari"></option>
+  </datalist>
+
+<p>The &lt;dfn&gt; tag is used to represent defining an instance of a term. Here, we define HTML.<br>
+<dfn>HTML</dfn> is the standard markup language for creating web pages.</p>
+
+
+<p>The &lt;keygen&gt; tag creates encryption based on 1024 or 2048 bit encryption </p>
+<form action="demo_keygen.asp" method="get">
+  Encryption: <keygen name="security">
+</form>
+
+<p> We can make a separate box for input using &lt;legend&gt; and group it using &lt;fieldset&gt; We can also define labels for each input box using &lt;label&gt;</p>
+ <fieldset>
+  <legend>Tell me about yourself</legend>
+  <label>School<input type="text"><br> </label>
+  <label>City<input type="text"><br> </label>
+  <label>Favorite color: <input type="text"> </label>
+ </fieldset>
+
+<p> We can show a literal meter using &lt;meter&gt; It will be filled halfway through</p> 
+<meter value="5" min="0" max="10">5 out of 10</meter><br>
+
+<script>
+document.write("Here is some javascript code that prints out stuff! using the script tag!")
+</script>
+<noscript>Because your browser doesn't support JS, this will appear instead</noscript>
+<br>
+
+<p> We can render the same shaq gif using the &lt;object&gt; tag! </p>
+<object width="100" height="100" data="images/shaq.gif">
+</object>
+
+<p> Trying typing in numbers in the box! The &lt;output&gt; tag lets us perform calculations!</p>
+
+<form oninput="sumresult.value=parseInt(a1.value)+parseInt(a2.value)">
+  <input type="number" name="a1" value="20" /> +
+  <input type="number" name="a2" value="40" /><br />
+  The output is:   <output name="sumresult"></output>
+</form>
+
+<p> You can import all kinds of shapes using &lt;svg&gt;! </p>
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="blue" stroke-width="4" fill="green" />
+</svg>
+
+
+<footer>
+  This is a footer made using &lt;footer&gt;
+  You can find our newest app AmiiboDex coming soon!
+</footer>
+</body>
