@@ -36,64 +36,6 @@
 	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
-	<script>
-
-  		// Initialize Firebase with the AmiiboDex specs
-  		var config = {
-    			apiKey: "AIzaSyD3p9hdIYoCSi72wUMbPT-JkIzXPf6Xmrc",
-    			authDomain: "amiibodex.firebaseapp.com",
-    			databaseURL: "https://amiibodex.firebaseio.com",
-    			storageBucket: "amiibodex.appspot.com",
-    			messagingSenderId: "582801923363"
-  		};
-  		firebase.initializeApp(config);
-
-		// Sign-In Button is pressed
-		function signInUserData(){
-			// Collect values from the page
-			//var username = document.querySelector('#username').value;
-			var email = document.querySelector('#email').value;
-			var password = document.querySelector('#password').value;
-
-			// Sign-In User Authentication
-			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-				console.log(error.code);
-				console.log(error.message);
-				document.getElementById("sign-in-status").innerHTML = "Error: " + error.message;
-			});
-
-			// If there is a user session going on, redirect to "indexsignedin.html"
-			firebase.auth().onAuthStateChanged(function (user) {
-				if(user) {
-					// User is signed in
-					window.location.href='indexsignedin.html';
-				}
-			});
-		}
-
-		// Google Login Button
-		function google_login_in(){
-			var provider = new firebase.auth.GoogleAuthProvider(); 
-			provider.addScope('https://www.googleapis.com/auth/plus.login');
-			firebase.auth().signInWithPopup(provider).then(function(result) {
-				var token = result.credential.accessToken;
-				var user = result.user;
-			}).catch(function(error) {
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				var email = error.email;
-				var credential = error.credential;
-			});
-		}
-
-		// Authenticate user if user is signed in
-		firebase.auth().onAuthStateChanged(function (user) {
-			if(user) {
-				var user = firebase.auth().currentUser;
-				location.href = "indexsignedin.html";
-			}
-    		});
-
-	</script>
+  <script type="text/javascript" src="js/test.js"></script>
   </body>
 </html>
