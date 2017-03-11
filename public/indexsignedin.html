@@ -8,14 +8,13 @@
     <link rel="stylesheet" type="text/css" href="css/buttonDesign.css">
     <link rel="stylesheet" type="text/css" href="css/divDesign.css">
     <link rel="stylesheet" type="text/css" href="css/textDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
 
   </head>
   <body>
   	<button class="backButton_1" type="button" onclick="location.href='signout.html'">Sign Out</button><br><br>
 	<div class="headerDiv">
 		<h1 class="titleHeader">AmiiboDex</h1><br><br>
-		<!-- <br><p id="test"></p> -->
-		<!-- <a href="test.html">Test Checklist</a> -->
 	</div>
 
 	<div>
@@ -23,9 +22,58 @@
 		<a class="textLine_2" href="team.html">Team</a><br><br>
 	</div>
 
-	<button class="modButton" type="button" onclick="location.href='add.html'">Add</button>
-	<button class="modButton" type="button" onclick="location.href='indexdelete.html'">Delete</button>
-	<button class="modButton" type="button" onclick="location.href='indexedit.html'">Edit</button><br><br>
+	<!--<button class="modButton" type="button" id="addButton" onclick="location.href='add.html'">Add</button>-->
+	<button class="modButton" type="button" id="addButton" onclick="showAddModal()">Add</button>
+	<button class="modButton" type="button" id="deleteButton" onclick="location.href='indexdelete.html'">Delete</button>
+	<button class="modButton" type="button" id="editButton" onclick="location.href='indexedit.html'">Edit</button><br><br>
+
+	<div id="addModal" class="modal">
+		<!--<button class="backButton" type="button" onclick="backPressed()">Back</button>-->
+		<div class="modal-content">
+			
+			<div class="modal-header">
+				<span class="close">&times;</span>
+				<h1 class="textLine_1">Add an Amiibo</h1>
+			</div>
+			<div class="modal-body">
+				<form class="textLine_1">
+					Number:<br>
+			    	<input class="inputText" type="text" id="number">
+			    	<br>
+			    	Name:<br>
+			    	<input class="inputText" type="text" id="name">
+			    	<br>
+			    	Image: *Required*<br>
+			    	<input type="file" accept="image/*" id="image">
+			    	<br>
+			    	Origin:<br>
+			    	<input class="inputText" type="text" id="origin">
+			    	<br>
+			    	Date:<br>
+			    	<input class="inputText" type="text" id="date">
+			    	<br>
+			    	Wave:<br>
+			    	<input class="inputText" type="text" id="wave">
+			    	<br>
+			    	Exclusive:<br>
+			    	<input class="inputText" type="text" id="exclusive">
+			    	<br>
+			    	Description:<br>
+			    	<input class="inputText" type="text" id="description">
+			    	<br>
+			    	Rarity:<br>
+			    	<input class="inputText" type="text" id="rarity">
+			    	<br>
+			    	Have:<br>
+			    	<input class="inputText" type="checkbox" id="have">
+			    	<br>
+				</form> 
+			</div>
+			<div class="modal-footer">
+				<input class="modButton" type="button" value="Add Amiibo" onclick="addAmiibo(authId)">
+			</div>
+		</div>
+	</div>
 
 	<table id="customAmiiboTable" class="mainTable">
 		<caption class="textLine">Your Custom Amiibos</caption>
