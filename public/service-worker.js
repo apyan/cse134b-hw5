@@ -1,81 +1,89 @@
 importScripts('/cache-polyfill.js');
-self.addEventListener('install', function(e) {
-e.waitUntil(
-caches.open('airhorner').then(function(cache) {
-return cache.addAll([
-'/'  
-/*'/index.html',
-'/css/amiiboTable.css',
-'/css/buttonDesign.css',
-'/css/divDesign.css',
-'/css/textDesign.css',
-'/css/modal.css',
-'/js/test.js',*/
-]);
-})
-);
-});
 
+'use strict';
 
-/*self.addEventListener('fetch', function(event) {
-console.log(event.request.url);
-event.respondWith(
-caches.match(event.request).then(function(response) {
-return response || fetch(event.request);
-})
-);
-});*/
+const CACHE_VERSION = 1;
+let CURRENT_CACHES = {
+  offline: 'offline-v' + CACHE_VERSION
+};
+const OFFLINE_URL = 'error200.html';
 
-// TODO: Fix this shit (aka the above code to run a 200 error request)
+function createCacheBustedRequest(url) {
+  let request = new Request(url, {cache: 'reload'});
+  // See https://fetch.spec.whatwg.org/#concept-request-mode
+  // This is not yet supported in Chrome as of M48, so we need to explicitly check to see
+  // if the cache: 'reload' option had any effect.
+  if ('cache' in request) {
+    return request;
+  }
 
-/*self.addEventListener('fetch', event => {
-	// Responds with index.html
-	if (event.request.url.endsWith('index.html')) {
-		// Requests for one.js will result in the SW firing off a fetch() request,
-		// which will be reflected in the DevTools Network panel.
-		event.respondWith(fetch(event.request));
-	// Signed In?
-	//} else if (event.request.url.endsWith('indexsignedin')) {
-    		// Requests for two.js will result in the SW constructing a new Response object,
-		// so there won't be an additional network request in the DevTools Network panel.
-		//event.respondWith(new Response('// no-op'));
-	}
-		// Error 200 custom page
-		// Requests for anything else won't trigger event.respondWith(), so there won't be
-		// any SW interaction reflected in the DevTools Network panel.
-});*/
+  // If {cache: 'reload'} didn't have any effect, append a cache-busting URL parameter instead.
+  let bustedUrl = new URL(url, self.location.href);
+  bustedUrl.search += (bustedUrl.search ? '&' : '') + 'cachebust=' + Date.now();
+  return new Request(bustedUrl);
+}
 
-self.addEventListener('fetch', function(event) {
-  console.log('Fetch event:', event.request.url);
-
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      if (response) {
-        console.log('Found in cache:', response);
-        return response;
-      }
-
-      console.log('No response found in cache. Fetch from network.');
-
-      var fetchRequest = event.request.clone();
-
-      return fetch(fetchRequest).then(
-        function(response) {
-          if(!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          var responseToCache = response.clone();
-
-          caches.open(CURRENT_CACHES['mycache']).then(function(cache) {
-              var cacheRequest = event.request.clone();
-              console.log("Add to cache:" + cacheRequest);
-              cache.put(cacheRequest, responseToCache);
-            });
-
-          return response;
-        });
-      
+self.addEventListener('install', event => {
+  event.waitUntil(
+    // We can't use cache.add() here, since we want OFFLINE_URL to be the cache key, but
+    // the actual URL we end up requesting might include a cache-busting parameter.
+    fetch(createCacheBustedRequest(OFFLINE_URL)).then(function(response) {
+      return caches.open(CURRENT_CACHES.offline).then(function(cache) {
+        return cache.put(OFFLINE_URL, response);
+      });
     })
   );
+});
+
+self.addEventListener('activate', event => {
+  // Delete all caches that aren't named in CURRENT_CACHES.
+  // While there is only one cache in this example, the same logic will handle the case where
+  // there are multiple versioned caches.
+  let expectedCacheNames = Object.keys(CURRENT_CACHES).map(function(key) {
+    return CURRENT_CACHES[key];
+  });
+
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (expectedCacheNames.indexOf(cacheName) === -1) {
+            // If this cache name isn't present in the array of "expected" cache names,
+            // then delete it.
+            console.log('Deleting out of date cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  // We only want to call event.respondWith() if this is a navigation request
+  // for an HTML page.
+  // request.mode of 'navigate' is unfortunately not supported in Chrome
+  // versions older than 49, so we need to include a less precise fallback,
+  // which checks for a GET request with an Accept: text/html header.
+  if (event.request.mode === 'navigate' ||
+      (event.request.method === 'GET' &&
+       event.request.headers.get('accept').includes('text/html'))) {
+    console.log('Handling fetch event for', event.request.url);
+    event.respondWith(
+      fetch(event.request).catch(error => {
+        // The catch is only triggered if fetch() throws an exception, which will most likely
+        // happen due to the server being unreachable.
+        // If fetch() returns a valid HTTP response with an response code in the 4xx or 5xx
+        // range, the catch() will NOT be called. If you need custom handling for 4xx or 5xx
+        // errors, see https://github.com/GoogleChrome/samples/tree/gh-pages/service-worker/fallback-response
+        console.log('Fetch failed; returning offline page instead.', error);
+        return caches.match(OFFLINE_URL);
+      })
+    );
+  }
+
+  // If our if() condition is false, then this fetch handler won't intercept the request.
+  // If there are any other fetch handlers registered, they will get a chance to call
+  // event.respondWith(). If no fetch handlers call event.respondWith(), the request will be
+  // handled by the browser as if there were no service worker involvement.
 });
