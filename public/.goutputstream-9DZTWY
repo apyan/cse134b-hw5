@@ -12,10 +12,6 @@
     <link rel="stylesheet" type="text/css" href="css/modal.css">
     <meta name="theme-color" content="#000080" />
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-	
   </head>
   <body>
  
@@ -92,15 +88,15 @@
 		<caption class="textLine">Your Amiibos</caption>
 		<thead class="directionBar">
 			<tr class="tableHeader">
-				<th >Number</th>
-				<th >Name</th>
+				<th onclick="sortTable(0,'mainTable')">Number</th>
+				<th onclick="sortTable(1,'mainTable')">Name</th>
 				<th>Image</th>
-				<th >Game Origin</th>
-				<th >Date Release</th>
-				<th >Wave</th>
+				<th onclick="sortTable(2,'mainTable')">Game Origin</th>
+				<th onclick="sortTable(3,'mainTable')">Date Release</th>
+				<th onclick="sortTable(4,'mainTable')">Wave</th>
 				<th>Exclusive</th>
-				<th >Description</th>
-				<th >Rarity</th>
+				<th onclick="sortTable(6,'mainTable')">Description</th>
+				<th onclick="sortTable(7,'mainTable')">Rarity</th>
 				<th>Have</th>
 			</tr>
 		</thead>
@@ -552,7 +548,7 @@
 	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 
 	<script type="text/javascript" src="js/test.js"></script>
-  <!-- <script>
+  <script>
     if ('serviceWorker' in navigator) {
       console.log("Will service worker register?");
       navigator.serviceWorker.register('service-worker.js').then(function(reg){
@@ -561,6 +557,6 @@
         console.log("No it didn't. This happened: ", err)
       });
     }
-  </script> -->
+  </script>
   </body>
 </html>

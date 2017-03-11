@@ -1,14 +1,93 @@
 importScripts('/cache-polyfill.js');
 
-'use strict';
+//'use strict';
 
-const CACHE_VERSION = 1;
+/*const CACHE_VERSION = 1;
 let CURRENT_CACHES = {
   offline: 'offline-v' + CACHE_VERSION
 };
-const OFFLINE_URL = 'error200.html';
+const OFFLINE_URL = 'error200.html';*/
 
-function createCacheBustedRequest(url) {
+var CACHE_NAME= 'amiibodex2-cache-v1';
+var CACHE_FILES = [
+    '/',
+    '/js/test.js',
+    '/css/amiiboTable.css',
+    '/css/buttonDesign.css',
+    '/css/divDesign.css',
+    '/css/modal.css',
+    '/css/textDesign.css'
+];
+
+self.addEventListener('install', function(event) {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the response.
+        var fetchRequest = event.request.clone();
+
+        return fetch(fetchRequest).then(
+          function(response) {
+            // Check if we received a valid response
+            if(!response || response.status !== 200 || response.type !== 'basic') {
+              return response;
+            }
+
+            // IMPORTANT: Clone the response. A response is a stream
+            // and because we want the browser to consume the response
+            // as well as the cache consuming the response, we need
+            // to clone it so we have two streams.
+            var responseToCache = response.clone();
+
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+
+            return response;
+          }
+        );
+      })
+    );
+});
+
+self.addEventListener('activate', function(event) {
+
+  var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+/*function createCacheBustedRequest(url) {
   let request = new Request(url, {cache: 'reload'});
   // See https://fetch.spec.whatwg.org/#concept-request-mode
   // This is not yet supported in Chrome as of M48, so we need to explicitly check to see
@@ -32,6 +111,12 @@ self.addEventListener('install', event => {
         return cache.put(OFFLINE_URL, response);
       });
     })
+	// Added
+        caches.open(CACHE_VERSION_TITLE)
+            .then(function (cache) {
+                console.log('Opened cache');
+                return cache.addAll(CACHE_FILES);
+            })
   );
 });
 
@@ -79,6 +164,14 @@ self.addEventListener('fetch', event => {
         console.log('Fetch failed; returning offline page instead.', error);
         return caches.match(OFFLINE_URL);
       })
+
+	// Added
+        caches.match(event.request).then(function(res){
+            if(res){
+                return res;
+            }
+            requestBackend(event);
+        })
     );
   }
 
@@ -87,3 +180,22 @@ self.addEventListener('fetch', event => {
   // event.respondWith(). If no fetch handlers call event.respondWith(), the request will be
   // handled by the browser as if there were no service worker involvement.
 });
+
+// Added
+function requestBackend(event){
+    var url = event.request.clone();
+    return fetch(url).then(function(res){
+        //if not a valid response send the error
+        if(!res || res.status !== 200 || res.type !== 'basic'){
+            return res;
+        }
+
+        var response = res.clone();
+
+        caches.open(CACHE_VERSION).then(function(cache){
+            cache.put(event.request, response);
+        });
+
+        return res;
+    })
+}*/

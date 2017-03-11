@@ -1,6 +1,7 @@
 {
   "projects": {
     "web hosting": "amiibodex",
-    "staging": "amiibodex"
+    "staging": "amiibodex",
+    "amiibodex2": "amiibodex2"
   }
 }
