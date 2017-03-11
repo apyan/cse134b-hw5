@@ -12,7 +12,9 @@
 
   </head>
   <body>
-  	<button class="backButton_1" type="button" onclick="location.href='signout.html'">Sign Out</button><br><br>
+  	<button class="backButton_1" type="button" id="signOutButton" onclick="showSignOutModal()">Sign Out</button>
+  	<!--<button class="backButton_1" type="button" onclick="location.href='signout.html'">Sign Out</button>-->
+  	<br><br>
 	<div class="headerDiv">
 		<h1 class="titleHeader">AmiiboDex</h1><br><br>
 	</div>
@@ -22,17 +24,32 @@
 		<a class="textLine_2" href="team.html">Team</a><br><br>
 	</div>
 
-	<!--<button class="modButton" type="button" id="addButton" onclick="location.href='add.html'">Add</button>-->
+	<!--<button class="modButton" type="button" id="addButton" onclick="location.href='add.html'">Add</button>
+	<button class="modButton" type="button" id="deleteButton" onclick="location.href='indexdelete.html'">Delete</button>-->
 	<button class="modButton" type="button" id="addButton" onclick="showAddModal()">Add</button>
 	<button class="modButton" type="button" id="deleteButton" onclick="location.href='indexdelete.html'">Delete</button>
 	<button class="modButton" type="button" id="editButton" onclick="location.href='indexedit.html'">Edit</button><br><br>
 
+	<div id="signOutModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" onclick="closeSignOutModal()">&times;</span>
+				<h1 class="textLine_1">Sign Out</h1>
+			</div>
+			<div class="modal-body">
+				Are you sure you want to sign out?
+			</div>
+			<div class="modal-footer">
+				<input class="modButton" type="button" value="Sign Out" onclick="signOutUserData()">
+			</div>
+		</div>
+	</div>
+	
 	<div id="addModal" class="modal">
 		<!--<button class="backButton" type="button" onclick="backPressed()">Back</button>-->
 		<div class="modal-content">
-			
 			<div class="modal-header">
-				<span class="close">&times;</span>
+				<span class="close" onclick="closeAddModal()">&times;</span>
 				<h1 class="textLine_1">Add an Amiibo</h1>
 			</div>
 			<div class="modal-body">
@@ -556,7 +573,7 @@
 		</tbody>
 	</table>
 
-	<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 	<script type="text/javascript" src="js/test.js"></script>
   </body>
 </html>

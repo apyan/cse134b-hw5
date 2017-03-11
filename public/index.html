@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/buttonDesign.css">
     <link rel="stylesheet" type="text/css" href="css/divDesign.css">
     <link rel="stylesheet" type="text/css" href="css/textDesign.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <meta name="theme-color" content="#000080" />
     <link rel="manifest" href="/manifest.json">
   </head>
@@ -16,8 +17,8 @@
  
 	<div class="headerDiv">
 		<h1 class="titleHeader">AmiiboDex</h1>
-		<button class="signButton" type="button" onclick="location.href='signup.html'">Sign Up</button>
-		<button class="signButton" type="button" onclick="location.href='signin.html'">Sign In</button><br><br>
+		<button class="signButton" type="button" onclick="showSignUpModal()">Sign Up</button>
+		<button class="signButton" type="button" onclick="showSignInModal()">Sign In</button><br><br>
 		<!-- <a href="test.html">Test Checklist</a> -->
 	</div>
 
@@ -33,6 +34,55 @@
 	<button class="disabledModButton" type="button" onclick="location.href='indexdelete.html'" title="Unable to edit. Please sign in." disabled>Delete</button>
 	<button class="disabledModButton" type="button" onclick="location.href='indexedit.html'" title="Unable to edit. Please sign in." disabled>Edit</button><br/>
 	To use this functionality, please sign up or sign in.<br><br>
+
+	<div id="signInModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" onclick="closeSignInModal()">&times;</span>
+				<h1 class="textLine_1">Sign In</h1>
+			</div>
+			<div class="modal-body">
+				<form class="textLine_1">
+					E-Mail Address:<br>
+			    	<input id="email" class="inputText" type="email" name="email">
+			    	<br>
+			    	Password:<br>
+			    	<input id="password" class="inputText" type="password" name="password">
+			    	<br><br>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<input id="sign-in" class="modButton" type="button" value="Sign In" onclick="signInUserData()">
+				<input id="google-sign-in" class="googleButton" type="button" value=" " onclick="google_login_in()">
+			</div>
+		</div>
+	</div>
+
+	<div id="signUpModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" onclick="closeSignUpModal()">&times;</span>
+				<h1 class="textLine_1">Sign Up</h1>
+			</div>
+			<div class="modal-body">
+				<form class="textLine_1">
+					E-Mail Address:<br>
+			    	<input id="email" class="inputText" type="email" name="email">
+			    	<br>
+			    	Password:<br>
+			    	<input id="password" class="inputText" type="password" name="password">
+			    	<br>
+			    	Re-Password:<br>
+			    	<input id="repassword" class="inputText" type="password" name="repassword">
+			    	<br><br>
+			    	<!--change to submit-->
+				</form>
+			</div>
+			<div class="modal-footer">
+				<input id="sign-up" class="modButton" type="button" value="Sign Up" onclick="signUpUserData()"/>
+			</div>
+		</div>
+	</div>
 
 	<table id="mainTable" class="mainTable">
 		<caption class="textLine">Your Amiibos</caption>

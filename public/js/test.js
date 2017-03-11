@@ -1096,20 +1096,54 @@ function backPressed() {
 		}
     	});
 }
+var signInButton = document.getElementById("signInButton");
+var signInModal = document.getElementById("signInModal");
+function showSignInModal() {
+	signInModal.style.display = "block";
+}
+function closeSignUpModal() {
+	signInModal.style.display = "none";
+}
+
+var signUpButton = document.getElementById("signUpButton");
+var signUpModal = document.getElementById("signUpModal");
+function showSignUpModal() {
+	signUpModal.style.display = "block";
+}
+function closeSignUpModal() {
+	signUpModal.style.display = "none";
+}
+
+var signOutButton = document.getElementById("signOutButton");
+var signOutModal = document.getElementById("signOutModal");
+function showSignOutModal() {
+	signOutModal.style.display = "block";
+}
+function closeSignOutModal() {
+	signOutModal.style.display = "none";
+}
 
 var addButton = document.getElementById("addButton");
 var addModal = document.getElementById("addModal");
-var span = document.getElementsByClassName("close")[0];
 function showAddModal() {
 	addModal.style.display = "block";
 }
 
-span.onclick = function() {
+function closeAddModal() {
 	addModal.style.display = "none";
 }
 
 window.onclick = function(event) {
-	if(event.target == addModal){
+	if(event.targe == signInModal){
+		signInModal.style.display = "none";
+	}
+	else if(event.target == signUpModal){
+		signUpModal.style.display = "none";
+	}
+	else if(event.target == addModal){
 		addModal.style.display = "none";
+	}
+	else if(event.target == signOutModal){
+		signOutModal.style.display = "none";
 	}
 }
