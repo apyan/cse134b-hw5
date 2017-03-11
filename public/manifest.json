@@ -13,6 +13,6 @@
   ],
   "start_url": "https://www.amiibodex2.firebaseapp.com",
   "background_color": "#ffffff",
-  "Theme_color": "#ffffff",
+  "theme_color": "#000080",
   "display": "standalone"
 }
