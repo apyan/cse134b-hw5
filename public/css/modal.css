@@ -21,7 +21,8 @@
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    text-align:center;
 }
 
 /* Add Animation */
@@ -52,17 +53,17 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #000080;
     color: white;
 }
 
 .modal-body {
     padding: 2px 16px;
-    overflow-y: auto
+    overflow-y: auto;
 }
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #000080;
     color: white;
 }

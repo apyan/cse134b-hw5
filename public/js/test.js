@@ -1037,6 +1037,7 @@ function google_login_in(){
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 		var token = result.credential.accessToken;
 		var user = result.user;
+		window.location.href='indexsignedin.html';
 	}).catch(function(error) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
@@ -1101,7 +1102,7 @@ var signInModal = document.getElementById("signInModal");
 function showSignInModal() {
 	signInModal.style.display = "block";
 }
-function closeSignUpModal() {
+function closeSignInModal() {
 	signInModal.style.display = "none";
 }
 
@@ -1134,7 +1135,7 @@ function closeAddModal() {
 }
 
 window.onclick = function(event) {
-	if(event.targe == signInModal){
+	if(event.target == signInModal){
 		signInModal.style.display = "none";
 	}
 	else if(event.target == signUpModal){
