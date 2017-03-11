@@ -53,7 +53,7 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #000080;
+    background-image: -webkit-linear-gradient(top, #254f6b, #152833);
     color: white;
 }
 
@@ -64,6 +64,6 @@
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #000080;
+    background-image: -webkit-linear-gradient(top, #254f6b, #152833);
     color: white;
 }
