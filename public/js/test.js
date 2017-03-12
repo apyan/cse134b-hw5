@@ -103,7 +103,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 			customAmiiboList.forEach(function(item, index) {
 				markOwnershipCustom(item,index, authId);
 			});
-			$("#customAmiiboTable").DataTable();
     		} else {
 			// No user is signed in, redirect back to "index.html"
 			window.location.href='index.html';
@@ -310,12 +309,28 @@ function forEachFunction(item, index) {
 	});
 	
 }
+function waitToFinishCustomAmiibo() {
+	if(customSoFar!=customTotalAmiibo){
+		setTimeout(waitToFinishCustomAmiibo, 50);
+		return;
+	}
+	$("#mainTable").DataTable();
+}
+
+function waitToFinish8() {
+	if(numberOfAmiibo!=34){
+		setTimeout(waitToFinish8, 50);
+		return;
+	}
+	$("#mainTable").DataTable();
+}
 function waitToFinish7() {
     if(numberOfAmiibo!=30) {//we want it to match
         setTimeout(waitToFinish7, 50);//wait 50 millisecnds then recheck
         return;
     }
     fastcharacters7.forEach(forEachFunction);
+    waitToFinish8();
     
 }
 function waitToFinish6() {
@@ -590,6 +605,8 @@ function displayCustomEdit(object) {
 }
 
 var customAmiiboList = [];
+var customTotalAmiibo = 0;
+var customAmiiboSoFar = 0;
 // Displays the amiibo objects onto the table
 function displayCustomAmiibo(object) {
 	for(var p in object) {
@@ -598,7 +615,7 @@ function displayCustomAmiibo(object) {
 			continue;
 		}
 		customAmiiboList.push(object[p]["Number"]);
-		
+		customTotalAmiibo++;
 		// Create a format HTML element for each amiibo
 		// Create a TD section for Number
 		var node = document.createElement("TR");
