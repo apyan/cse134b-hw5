@@ -17,14 +17,14 @@ return cache.addAll([
 });
 
 
-/*self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function(event) {
 console.log(event.request.url);
 event.respondWith(
 caches.match(event.request).then(function(response) {
 return response || fetch(event.request);
 })
 );
-});*/
+});
 
 // TODO: Fix this shit (aka the above code to run a 200 error request)
 
@@ -43,7 +43,7 @@ return response || fetch(event.request);
 		// Error 200 custom page
 		// Requests for anything else won't trigger event.respondWith(), so there won't be
 		// any SW interaction reflected in the DevTools Network panel.
-});*/
+});
 
 var CACHE_VERSION = 1;
 var CURRENT_CACHES = {
@@ -89,4 +89,4 @@ self.addEventListener('fetch', function(event) {
       
     })
   );
-});
+});*/
