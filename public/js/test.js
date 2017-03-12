@@ -310,20 +310,13 @@ function forEachFunction(item, index) {
 	});
 	
 }
-function waitToFinish8() {
-	if(numberOfAmiibo!=34){
-		setTimeout(waitToFinish8, 50);
-		return;
-	}
-	$("#mainTable").DataTable();
-}
 function waitToFinish7() {
     if(numberOfAmiibo!=30) {//we want it to match
         setTimeout(waitToFinish7, 50);//wait 50 millisecnds then recheck
         return;
     }
     fastcharacters7.forEach(forEachFunction);
-    waitToFinish8();
+    
 }
 function waitToFinish6() {
     if(numberOfAmiibo!=25) {//we want it to match
