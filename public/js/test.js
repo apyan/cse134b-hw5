@@ -309,14 +309,6 @@ function forEachFunction(item, index) {
 	});
 	
 }
-function waitToFinishCustomAmiibo() {
-	if(customSoFar!=customTotalAmiibo){
-		setTimeout(waitToFinishCustomAmiibo, 50);
-		return;
-	}
-	$("#mainTable").DataTable();
-}
-
 function waitToFinish8() {
 	if(numberOfAmiibo!=34){
 		setTimeout(waitToFinish8, 50);
@@ -605,8 +597,6 @@ function displayCustomEdit(object) {
 }
 
 var customAmiiboList = [];
-var customTotalAmiibo = 0;
-var customAmiiboSoFar = 0;
 // Displays the amiibo objects onto the table
 function displayCustomAmiibo(object) {
 	for(var p in object) {
@@ -615,7 +605,7 @@ function displayCustomAmiibo(object) {
 			continue;
 		}
 		customAmiiboList.push(object[p]["Number"]);
-		customTotalAmiibo++;
+		
 		// Create a format HTML element for each amiibo
 		// Create a TD section for Number
 		var node = document.createElement("TR");
