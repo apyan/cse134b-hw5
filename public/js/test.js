@@ -103,6 +103,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 			customAmiiboList.forEach(function(item, index) {
 				markOwnershipCustom(item,index, authId);
 			});
+			$("#customAmiiboTable").DataTable();
     		} else {
 			// No user is signed in, redirect back to "index.html"
 			window.location.href='index.html';
@@ -395,103 +396,6 @@ function markOwnershipCustom(item, index, userId) {
 	userOwnershipRef.on('value', function(snapshot){
 		ownership.checked = snapshot.val();
 	});
-}
-
-// Sorting the table on page
-function sortTable(n, tableId) {
-	var table, rows, switching, i, x, y, shouldSwitch, dir,var1, switchcount = 0;
-	table = document.getElementById(tableId);
-	switching = true;
-	dir = "asc"; 
-	while (switching) {
-		switching = false;
-
-		rows = table.getElementsByTagName("TR");
-
-		for(i = 1; i < (rows.length - 1); i++) {
-			shouldSwitch = false;
-			x = rows[i].getElementsByTagName("P")[n];
-			y = rows[i + 1].getElementsByTagName("P")[n];
-			if(dir == "asc") {
-				if (isNaN(x.innerHTML) && isNaN(y.innerHTML) && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-					shouldSwitch= true;
-					break;
-				}
-				else if(!isNaN(x.innerHTML) && !isNaN(y.innerHTML) && Number(x.innerHTML) > Number(y.innerHTML)){
-					shouldSwitch= true;
-					break;
-				}
-			} else if(dir == "desc") {
-				if (isNaN(x.innerHTML) && isNaN(y.innerHTML) && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-				shouldSwitch= true;
-				break;
-			}
-			else if(!isNaN(x.innerHTML) && !isNaN(y.innerHTML) && Number(x.innerHTML) < Number(y.innerHTML)){
-				shouldSwitch= true;
-				break;
-        		}
-      		}
-    	}
-
-		if(shouldSwitch) {
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			switchcount ++; 
-		} else {
-			if (switchcount == 0 && dir == "asc") {
-				dir = "desc";
-				switching = true;
-			}
-		}
-	}
-}
-
-function sortCustomTable(n) {
-	var table, rows, switching, i, x, y, shouldSwitch, dir,var1, switchcount = 0;
-	table = document.getElementById("customAmiiboTable");
-	switching = true;
-	dir = "asc"; 
-	while (switching) {
-		switching = false;
-
-		rows = table.getElementsByTagName("TR");
-
-		for(i = 1; i < (rows.length - 1); i++) {
-			shouldSwitch = false;
-			x = rows[i].getElementsByTagName("TD")[n];
-			y = rows[i + 1].getElementsByTagName("TD")[n];
-			if(dir == "asc") {
-				if (isNaN(x.innerHTML) && isNaN(y.innerHTML) && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-					shouldSwitch= true;
-					break;
-				}
-				else if(!isNaN(x.innerHTML) && !isNaN(y.innerHTML) && Number(x.innerHTML) > Number(y.innerHTML)){
-					shouldSwitch= true;
-					break;
-				}
-			} else if(dir == "desc") {
-				if (isNaN(x.innerHTML) && isNaN(y.innerHTML) && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-				shouldSwitch= true;
-				break;
-			}
-			else if(!isNaN(x.innerHTML) && !isNaN(y.innerHTML) && Number(x.innerHTML) < Number(y.innerHTML)){
-				shouldSwitch= true;
-				break;
-        		}
-      		}
-    	}
-
-		if(shouldSwitch) {
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			switchcount ++; 
-		} else {
-			if (switchcount == 0 && dir == "asc") {
-				dir = "desc";
-				switching = true;
-			}
-		}
-	}
 }
 
 var uploaded = 0;
