@@ -3,13 +3,20 @@ importScripts('/cache-polyfill.js');
 var CACHE_NAME= 'amiibodex2-cache-v1';
 var CACHE_FILES = [
     '/',
+    '/js/firebase.js',
+    '/js/jquery-1.12.3.min.js',
+    '/jquery.dataTables.min.js',
     '/js/test.js',
     '/css/amiiboTable.css',
     '/css/buttonDesign.css',
     '/css/divDesign.css',
     '/css/modal.css',
     '/css/jquery.dataTables.min.css',
-    '/css/textDesign.css'
+    '/css/textDesign.css',
+    '/index.html',
+    '/indexsignedin.html',
+    '/indexdelete.html',
+    '/indexedit.html'
 ];
 
 self.addEventListener('install', function(event) {

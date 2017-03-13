@@ -2,11 +2,27 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo); */
 
 .mainTable {
+  display:none;
+  width: 96%; 
+  margin-left: 2%; 
+  margin-right: 2%;
+  text-align: center;
+}
+
+.fastTable {
   width: 96%; 
   margin-left: 2%; 
   margin-right: 2%;
   text-align: center;
   display: block;
+}
+
+.customAmiiboTable {
+  display:block;
+  width: 96%; 
+  margin-left: 2%; 
+  margin-right: 2%;
+  text-align: center;
 }
 
 .directionBar {
@@ -43,4 +59,9 @@ td {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.loadingSpinner {
+  display: block;
+  margin:auto;
 }
