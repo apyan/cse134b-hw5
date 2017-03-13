@@ -528,6 +528,7 @@ function waitToUpload() {
 }
 
 function addAmiibo(authId) {
+	showLoadingModal();
 	var file;
 	var image = document.getElementById("image");
     if ("files" in image) {
@@ -1084,6 +1085,11 @@ function backPressed() {
 		}
     	});
 }
+var loadingModal = document.getElementById("loadingModal");
+function showLoadingModal(){
+	loadingModal.style.display = "block";
+}
+
 var signInButton = document.getElementById("signInButton");
 var signInModal = document.getElementById("signInModal");
 function showSignInModal() {
