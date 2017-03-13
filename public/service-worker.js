@@ -8,6 +8,7 @@ var CACHE_FILES = [
     '/css/buttonDesign.css',
     '/css/divDesign.css',
     '/css/modal.css',
+    '/css/jquery.dataTables.min.css',
     '/css/textDesign.css'
 ];
 
