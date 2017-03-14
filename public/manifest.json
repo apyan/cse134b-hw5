@@ -6,7 +6,7 @@
   "manifest_version": 2,
   "icons": [
     {
-      "src":"fireworks-icon192x192.png",
+      "src":"amiibodex-icon192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }

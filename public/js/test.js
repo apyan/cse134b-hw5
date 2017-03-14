@@ -20,27 +20,23 @@ var config = {
 };
 firebase.initializeApp(config);
 
-/*var path1 = window.location.pathname;
+var path1 = window.location.pathname;
 var page1 = path1.split("/").pop();
 if((page1.localeCompare("index.html") == 0) || (page1.localeCompare("") == 0)){
-	console.log('REACHED');
-window.addEventListener('beforeinstallprompt', function(e) {
-  // beforeinstallprompt Event fired
-
-  // e.userChoice will return a Promise.
-  e.userChoice.then(function(choiceResult) {
-
-    console.log(choiceResult.outcome);
-
-    if(choiceResult.outcome == 'dismissed') {
-      console.log('User cancelled home screen install');
-    }
-    else {
-      console.log('User added to home screen');
-    }
-  });
-});
-}*/
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('service-worker.js', { scope: './' })
+        .then(function(r) {
+          console.log('registered service worker');
+        })
+        .catch(function(whut) {
+          console.error('uh oh... ');
+          console.error(whut);
+        });
+       
+      window.addEventListener('beforeinstallprompt', function(e) {
+      });
+    });
+}
 
 // Authenticate user if user is signed in
 var path = window.location.pathname;
