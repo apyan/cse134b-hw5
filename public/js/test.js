@@ -279,7 +279,7 @@ function fastForEachFunction(item, index) {
 		gameOrigin.innerHTML = snapshot.val();
 	});
 	// Pulls the Date Release attribute
-	var dateRelease = document.getElementById(itemName + "-DateRelease");
+	var dateRelease = document.getElementById(itemName + "-DateReleaseFast");
 	var firebaseCharacterDateReleaseRef = firebaseCharacterRef.child("Date Release");
 	firebaseCharacterDateReleaseRef.on('value', function(snapshot){
 		dateRelease.innerHTML = snapshot.val();
@@ -426,10 +426,14 @@ function waitToFinish3() {
     $("#mainTable").DataTable();
     var fastTable = document.getElementById("fastTable");
     $('#fastTable').hide();
-    loadingSpinner.style.display="none";
+    var elem = document.getElementById("progress");
+    elem.style.display="none";
 }
 function waitToFinish2() {
     if(fastNumberOfAmiibo!=10) {//we want it to match
+    	var elem = document.getElementById("bar");
+    	elem.innerHTML = fastNumberOfAmiibo * 10 + "%";
+    	elem.style.width = fastNumberOfAmiibo * 10 + "%";
         setTimeout(waitToFinish2, 50);//wait 50 millisecnds then recheck
         return;
     }
@@ -438,6 +442,7 @@ function waitToFinish2() {
     	"searching": false,
     	"info": false
     });
+    $('#fastTable').show();
     characters.forEach(forEachFunction);
     waitToFinish3();
 }
