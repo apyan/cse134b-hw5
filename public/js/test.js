@@ -20,6 +20,27 @@ var config = {
 };
 firebase.initializeApp(config);
 
+/*var path1 = window.location.pathname;
+var page1 = path1.split("/").pop();
+if((page1.localeCompare("index.html") == 0) || (page1.localeCompare("") == 0)){
+	console.log('REACHED');
+window.addEventListener('beforeinstallprompt', function(e) {
+  // beforeinstallprompt Event fired
+
+  // e.userChoice will return a Promise.
+  e.userChoice.then(function(choiceResult) {
+
+    console.log(choiceResult.outcome);
+
+    if(choiceResult.outcome == 'dismissed') {
+      console.log('User cancelled home screen install');
+    }
+    else {
+      console.log('User added to home screen');
+    }
+  });
+});
+}*/
 
 // Authenticate user if user is signed in
 var path = window.location.pathname;
@@ -49,8 +70,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 			window.location.href='index.html';
 		}
 	}
-	// For index.html
-	if(page.localeCompare("index.html") == 0) {
+	// For index.html, or default entrance
+	if((page.localeCompare("index.html") == 0) || (page.localeCompare("") == 0)) {
 		if(user) {
 			// User is signed in, redirect to proper page
 			window.location.href='indexsignedin.html';
@@ -112,7 +133,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 	if(page.localeCompare("signin.html") == 0) {
 		if(user) {
 			var user = firebase.auth().currentUser;
-			location.href = "indexsignedin.html";
+			location.href = 'indexsignedin.html';
 		}
 	}
 	// For signout.html
@@ -901,6 +922,7 @@ function editAmiiboClick() {
 				// Create a format HTML element for each amiibo
 				var node = document.createElement("TR");
 				var remove = document.createElement("TD");
+
 				var objectRemove = document.createElement("input");
 				objectRemove.type = "checkbox";
 				objectRemove.id = (object[p]["Name"] + "-Remove");

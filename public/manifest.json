@@ -11,8 +11,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://www.amiibodex2.firebaseapp.com",
+  "start_url": "https://amiibodex2.firebaseapp.com",
   "background_color": "#ffffff",
   "theme_color": "#000080",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait"
 }
