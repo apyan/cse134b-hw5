@@ -442,10 +442,7 @@ function waitToFinish3() {
     mainTable.style.display = "block";
     $("#mainTable").DataTable();
     var fastTable = document.getElementById("fastTable");
-
     $('#fastTable').hide();
-    var elem = document.getElementById("progress");
-    elem.style.display="none";
 }
 function waitToFinish2() {
     if(fastNumberOfAmiibo!=10) {//we want it to match
@@ -455,6 +452,8 @@ function waitToFinish2() {
         setTimeout(waitToFinish2, 50);//wait 50 millisecnds then recheck
         return;
     }
+    var elem = document.getElementById("progress");
+    elem.style.display="none";
     $("#fastTable").DataTable({
     	"paging": false,
     	"searching": false,
