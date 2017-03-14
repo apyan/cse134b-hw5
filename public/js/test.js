@@ -44,6 +44,9 @@ var page = path.split("/").pop();
 
 var authId;
 var firebaseCustomRef;
+var customAmiiboListNumber = 0;
+var currentCustomAmiiboListNumber = 0;
+var customAmiiboList = [];
 firebase.auth().onAuthStateChanged(function (user) {
 	// For add.html
 	if(page.localeCompare("add.html") == 0){
@@ -83,6 +86,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 			firebaseCustomRef.once("value",function(snapshot){
 				printObject(snapshot.val());
 			});
+			customAmiiboTable.style.display = "block";
 		} else {
 			// No user is signed in, redirect back to "index.html"
 			window.location.href='index.html';
@@ -99,6 +103,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 			firebaseCustomRef.once("value",function(snapshot){
 				displayCustomEdit(snapshot.val());
 			});
+			customAmiiboTableEdit.style.display = "block";
 		} else {
 			// No user is signed in, then redirect to "index.html"
 			window.location.href='index.html';
@@ -106,7 +111,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 	}
 	// For indexsignedin.html
 	if(page.localeCompare("indexsignedin.html") == 0) {
-    		if(user) {
+    	if(user) {
 			// User is signed in
 			document.getElementById("greeting-line").innerHTML = "Welcome, " + user.email + "!";
 			authId = user.uid;
@@ -119,8 +124,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 			});	
 			customAmiiboList.forEach(function(item, index) {
 				markOwnershipCustom(item,index, authId);
+
 			});
-    		} else {
+			
+			waitToFinish4();
+    	}
+    	else {
 			// No user is signed in, redirect back to "index.html"
 			window.location.href='index.html';
 		}
@@ -335,7 +344,7 @@ function forEachFunction(item, index) {
 	var itemName = itemArray[1];
 	//alert("itemNumber " + itemNumber + "itemName " + itemName);
 
-	// Pulls the Number attribute
+	// Pulls the Number attribute 
 	var number = document.getElementById(itemName + "-Number");
 	var firebaseCharacterRef = firebaseAmiiboListRef.child(item);
 	var firebaseCharacterNumberRef = firebaseCharacterRef.child("Number");
@@ -393,47 +402,21 @@ function forEachFunction(item, index) {
 	firebaseCharacterRarityRef.on('value', function(snapshot){
 		rarity.innerHTML = snapshot.val();
 	});
-	
 }
-function waitToFinish8() {
-	if(numberOfAmiibo!=34){
-		setTimeout(waitToFinish8, 50);
+
+function waitToFinish4() {
+	if(customAmiiboList.length == 0 && customAmiiboList.length == currentCustomAmiiboListNumber){
+		setTimeout(waitToFinish4, 50);
 		return;
 	}
-	$("#fastTable").DataTable();
+	else if(customAmiiboList.length != 0 && customAmiiboList.length != currentCustomAmiiboListNumber){
+		setTimeout(waitToFinish4, 50);
+		return;
+	}
+	customAmiiboTable.style.display = "block";
+	$("#customAmiiboTable").DataTable();
 }
-function waitToFinish7() {
-    if(numberOfAmiibo!=30) {//we want it to match
-        setTimeout(waitToFinish7, 50);//wait 50 millisecnds then recheck
-        return;
-    }
-    fastcharacters7.forEach(forEachFunction);
-    waitToFinish8();
-}
-function waitToFinish6() {
-    if(numberOfAmiibo!=25) {//we want it to match
-        setTimeout(waitToFinish6, 50);//wait 50 millisecnds then recheck
-        return;
-    }
-    fastcharacters6.forEach(forEachFunction);
-    waitToFinish7();
-}
-function waitToFinish5() {
-    if(numberOfAmiibo!=20) {//we want it to match
-        setTimeout(waitToFinish5, 50);//wait 50 millisecnds then recheck
-        return;
-    }
-    fastcharacters5.forEach(forEachFunction);
-    waitToFinish6();
-}
-function waitToFinish4() {
-    if(numberOfAmiibo!=15) {//we want it to match
-        setTimeout(waitToFinish4, 50);//wait 50 millisecnds then recheck
-        return;
-    }
-    fastcharacters4.forEach(forEachFunction);
-    waitToFinish5();
-}
+
 function waitToFinish3() {
     if(numberOfAmiibo!=34) {//we want it to match
         setTimeout(waitToFinish3, 50);//wait 50 millisecnds then recheck
@@ -494,6 +477,7 @@ function markOwnershipCustom(item, index, userId) {
 	userOwnershipRef.on('value', function(snapshot){
 		ownership.checked = snapshot.val();
 	});
+	
 }
 
 var uploaded = 0;
@@ -694,7 +678,7 @@ function displayCustomEdit(object) {
 	}
 }
 
-var customAmiiboList = [];
+
 // Displays the amiibo objects onto the table
 function displayCustomAmiibo(object) {
 	for(var p in object) {
@@ -768,6 +752,8 @@ function displayCustomAmiibo(object) {
 		have.appendChild(objectHave);
 		node.appendChild(have);
 		document.getElementById("customAmiiboTable").appendChild(node);
+
+		currentCustomAmiiboListNumber = currentCustomAmiiboListNumber + 1;
 	}
 }
 
@@ -809,7 +795,7 @@ function countCustom(object){
 }
 function editAmiibo(object){
 	for (var p in object) {
-  			if(p === "0-Custom"){
+  		if(p === "0-Custom"){
   				continue;
   			}
   			//add all into database
@@ -909,7 +895,6 @@ function editAmiiboClick() {
 
 		// Displays the amiibo objects onto the table
 		function printObject(object) {
-			var out = '';
 			for(var p in object) {
 				// Ignore the first element
 				if(p === "0-Custom"){
@@ -1108,6 +1093,8 @@ function backPressed() {
 		}
     	});
 }
+
+// Modal JavaScript code
 var loadingModal = document.getElementById("loadingModal");
 function showLoadingModal(){
 	loadingModal.style.display = "block";
