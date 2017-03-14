@@ -442,6 +442,7 @@ function waitToFinish3() {
     mainTable.style.display = "block";
     $("#mainTable").DataTable();
     var fastTable = document.getElementById("fastTable");
+
     $('#fastTable').hide();
     var elem = document.getElementById("progress");
     elem.style.display="none";
@@ -459,7 +460,7 @@ function waitToFinish2() {
     	"searching": false,
     	"info": false
     });
-    $('#fastTable').show();
+    $("#fastTable").fadeIn();
     characters.forEach(forEachFunction);
     waitToFinish3();
 }
