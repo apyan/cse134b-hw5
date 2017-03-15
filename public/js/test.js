@@ -72,7 +72,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		}
 	}
 	// For delete.html
-	if(page.localeCompare("delete.html") == 0) {
+	else if(page.localeCompare("delete.html") == 0) {
 		if(user) {
 			// User is signed in
 		} else {
@@ -82,14 +82,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 		}
 	}
 	// For index.html, or default entrance
-	if((page.localeCompare("index.html") == 0) || (page.localeCompare("") == 0)) {
+	else if((page.localeCompare("index.html") == 0) || (page.localeCompare("") == 0)) {
 		if(user) {
 			// User is signed in, redirect to proper page
 			window.location.href='indexsignedin.html';
 		}
 	}
 	// For indexdelete.html
-	if(page.localeCompare("indexdelete.html") == 0) {
+	else if(page.localeCompare("indexdelete.html") == 0) {
 		if(user) {
 			// User is signed in
 			document.getElementById("greeting-line").innerHTML = "Welcome, " + user.email + "!";
@@ -105,7 +105,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		}
 	}
 	// For indexedit.html
-	if(page.localeCompare("indexedit.html") == 0) {
+	else if(page.localeCompare("indexedit.html") == 0) {
 		if(user) {
 			authId = user.uid;
 			// User is signed in
@@ -122,7 +122,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		}
 	}
 	// For indexsignedin.html
-	if(page.localeCompare("indexsignedin.html") == 0) {
+	else if(page.localeCompare("indexsignedin.html") == 0) {
     	if(user) {
 			// User is signed in
 			document.getElementById("greeting-line").innerHTML = "Welcome, " + user.email + "!";
@@ -147,14 +147,14 @@ firebase.auth().onAuthStateChanged(function (user) {
 		}
 	}
 	// For signin.html
-	if(page.localeCompare("signin.html") == 0) {
+	else if(page.localeCompare("signin.html") == 0) {
 		if(user) {
 			var user = firebase.auth().currentUser;
 			location.href = 'indexsignedin.html';
 		}
 	}
 	// For signout.html
-	if(page.localeCompare("signout.html") == 0) {
+	else if(page.localeCompare("signout.html") == 0) {
 		if(user) {
 			// User is signed in
 		} else {
@@ -392,9 +392,14 @@ function waitToFinish4() {
 
 function waitToFinish3() {
     if(numberOfAmiibo!=34) {//we want it to match
+    	var elem = document.getElementById("bar");
+    	elem.innerHTML = numberOfAmiibo/34 * 100 + "%";
+    	elem.style.width = numberOfAmiibo/34 * 100 + "%";
         setTimeout(waitToFinish3, 50);//wait 50 millisecnds then recheck
         return;
     }
+    var elem = document.getElementById("progress");
+    elem.style.display="none";
     mainTable.style.display = "block";
     $("#mainTable").DataTable();
 }
