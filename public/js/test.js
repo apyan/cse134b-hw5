@@ -37,7 +37,6 @@ if((page1.localeCompare("index.html") == 0) || (page1.localeCompare("") == 0)){
       });
     });
 }
-
 // Authenticate user if user is signed in
 var path = window.location.pathname;
 var page = path.split("/").pop();
@@ -392,12 +391,10 @@ function waitToFinish4() {
 
 function waitToFinish3() {
     if(numberOfAmiibo!=34) {//we want it to match
-    	var elem = document.getElementById("bar");
-    	elem.innerHTML = numberOfAmiibo/34 * 100 + "%";
-    	elem.style.width = numberOfAmiibo/34 * 100 + "%";
         setTimeout(waitToFinish3, 50);//wait 50 millisecnds then recheck
         return;
     }
+    $("#fastTable").hide();
     var elem = document.getElementById("progress");
     elem.style.display="none";
     mainTable.style.display = "block";
@@ -419,10 +416,10 @@ function waitToFinish2() {
     	"info": false
     });
     $("#fastTable").show();
-    
-    
 }
 if((page.localeCompare("index.html") == 0) || (page.localeCompare("indexsignedin.html") == 0) || !page) {
+	fastcharacters1.forEach(fastForEachFunction);
+	waitToFinish2();
 	characters.forEach(forEachFunction);
     waitToFinish3();
 }
