@@ -483,6 +483,7 @@ function markOwnershipCustom(item, index, userId) {
 var uploaded = 0;
 var backToIndex = 0;
 var pictureCustomRef;
+var pictureTime;
 var downloadURL;
 var number;
 var name;
@@ -556,7 +557,9 @@ function addAmiibo(authId) {
     else{
     	var customStorageRef = firebase.storage().ref();
         var pictureRef = customStorageRef.child(file.name);
-        pictureCustomRef = customStorageRef.child("Custom-Amiibo/" + authId + "/" + file.name);
+        var d = new Date();
+        pictureTime = d.getTime();
+        pictureCustomRef = customStorageRef.child("Custom-Amiibo/" + authId + "/" + file.name + "-" + pictureTime); // add the date or time?
 
         pictureRef.name === pictureCustomRef.name;
         pictureRef.fullPath === pictureCustomRef.fullPath;
@@ -797,21 +800,21 @@ function editAmiibo(object){
 	for (var p in object) {
   		if(p === "0-Custom"){
   				continue;
-  			}
-  			//add all into database
-  			downloadURL = null;
-  			var file;
-  			var image = document.getElementById(object[p]["Name"] + "-NewImage");
-  			var imageOld = document.getElementById(object[p]["Name"] + "-Image");
-  			if("files" in image) {
-  				file = image.files[0];
-  			} 
-  			if(file == null){
-  				var firebaseDeleteRef = firebase.database().ref().child("users").child(authId).child("customList").child(object[p]["Number"] + "-" +  object[p]["Name"]);
-	  			firebaseDeleteRef.remove();
+		}
+		//add all into database
+		downloadURL = null;
+		var file;
+		var image = document.getElementById(object[p]["Name"] + "-NewImage");
+		var imageOld = document.getElementById(object[p]["Name"] + "-Image");
+		if("files" in image) {
+			file = image.files[0];
+		} 
+		if(file == null){
+			var firebaseDeleteRef = firebase.database().ref().child("users").child(authId).child("customList").child(object[p]["Number"] + "-" +  object[p]["Name"]);
+			firebaseDeleteRef.remove();
 
-  				downloadURL = imageOld.src;
-  				number = document.getElementById(object[p]["Name"] + "-Number").value;
+			downloadURL = imageOld.src;
+			number = document.getElementById(object[p]["Name"] + "-Number").value;
 			name = document.getElementById(object[p]["Name"] + "-Name").value;
 			origin = document.getElementById(object[p]["Name"] + "-GameOrigin").value;
 			date = document.getElementById(object[p]["Name"] + "-DateRelease").value;
@@ -821,21 +824,23 @@ function editAmiibo(object){
 			rarity = document.getElementById(object[p]["Name"] + "-Rarity").value;
 			have = document.getElementById(object[p]["Name"] + "-Have").checked;
 			waitForURLEdit();
-			
-  			}
-  			else{
-	  			var customStorageRef = firebase.storage().ref();
-	  			var pictureRef = customStorageRef.child(file.name);
-	  			pictureCustomRef = customStorageRef.child("Custom-Amiibo/" + authId + "/" + file.name);
-  			pictureRef.name === pictureCustomRef.name;
+	
+		}
+		else{
+			var customStorageRef = firebase.storage().ref();
+			var pictureRef = customStorageRef.child(file.name);
+			var d = new Date();
+			pictureTime = d.getTime();
+			pictureCustomRef = customStorageRef.child("Custom-Amiibo/" + authId + "/" + file.name + "-" + pictureTime); // add date or time
+			pictureRef.name === pictureCustomRef.name;
 		    pictureRef.fullPath === pictureCustomRef.fullPath;
 		   	uploaded = 0;
 
 		    pictureCustomRef.put(file).then(function(snapshot){
 		    	uploaded = 1;
-		    });
+	    	});
 
-	  			number = document.getElementById(object[p]["Name"] + "-Number").value;
+				number = document.getElementById(object[p]["Name"] + "-Number").value;
 			name = document.getElementById(object[p]["Name"] + "-Name").value;
 			origin = document.getElementById(object[p]["Name"] + "-GameOrigin").value;
 			date = document.getElementById(object[p]["Name"] + "-DateRelease").value;
@@ -849,14 +854,14 @@ function editAmiibo(object){
 		    waitToUploadEdit();
 
 			// remove all from database
-	  			var firebaseDeleteRef = firebase.database().ref().child("users").child(authId).child("customList").child(object[p]["Number"] + "-" +  object[p]["Name"]);
-	  			firebaseDeleteRef.remove();
-	  			customSoFar++;
-	  		}
-  		}
-  		if(customCounter === customSoFar){
-  			window.location.href = "indexsignedin.html";
-  		}
+			var firebaseDeleteRef = firebase.database().ref().child("users").child(authId).child("customList").child(object[p]["Number"] + "-" +  object[p]["Name"]);
+			firebaseDeleteRef.remove();
+			customSoFar++;
+		}
+	}
+	if(customCounter === customSoFar){
+		window.location.href = "indexsignedin.html";
+	}
 }
 
 function editAmiiboClick() {
