@@ -443,12 +443,13 @@ function waitToFinish2() {
     	"info": false
     });
     $("#fastTable").fadeIn();
-    characters.forEach(forEachFunction);
-    waitToFinish3();
+    
 }
 if((page.localeCompare("index.html") == 0) || (page.localeCompare("indexsignedin.html") == 0) || !page) {
 	fastcharacters1.forEach(fastForEachFunction);
 	waitToFinish2();
+	characters.forEach(forEachFunction);
+    waitToFinish3();
 }
 
 
