@@ -47,6 +47,18 @@ var firebaseCustomRef;
 var customAmiiboListNumber = 0;
 var currentCustomAmiiboListNumber = 0;
 var customAmiiboList = [];
+var firebaseAmiiboListRef = firebase.database().ref().child("original-amiibo-list");
+var firebaseFastAmiiboListRef = firebase.database().ref().child("fast-amiibo-list");
+var characters = [ "1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
+"6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu",
+"11-Kirby", "12-Marth", "13-Zelda", "14-DiddyKong", "15-Luigi",
+"16-LittleMac", "17-Pit", "18-CaptainFalcon", "19-Rosalina&Luma","20-Bowser",
+"21-Lucario", "22-ToonLink", "23-Sheik", "24-Ike","25-Shulk",
+"26-Sonic", "27-MegaMan", "28-KingDedede", "29-MetaKnight","30-Robin",
+"31-Lucina", "32-Wario", "33-Charizard", "34-Ness"];
+		   
+var fastcharacters1 = ["1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
+"6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu"];
 firebase.auth().onAuthStateChanged(function (user) {
 	// For add.html
 	if(page.localeCompare("add.html") == 0){
@@ -211,27 +223,7 @@ function writeNewUserData(password, authId) {
 
 }
 
-var firebaseAmiiboListRef = firebase.database().ref().child("original-amiibo-list");
 
-var characters = [ "1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
-"6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu",
-"6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu",
-"11-Kirby", "12-Marth", "13-Zelda", "14-DiddyKong", "15-Luigi",
-"16-LittleMac", "17-Pit", "18-CaptainFalcon", "19-Rosalina&Luma","20-Bowser",
-"21-Lucario", "22-ToonLink", "23-Sheik", "24-Ike","25-Shulk",
-"26-Sonic", "27-MegaMan", "28-KingDedede", "29-MetaKnight","30-Robin",
-"31-Lucina", "32-Wario", "33-Charizard", "34-Ness"];
-		   
-var fastcharacters1 = ["1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
-"6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu"];
-var fastcharacters2 = ["6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu"];
-var fastcharacters3 = ["11-Kirby", "12-Marth", "13-Zelda", "14-DiddyKong", "15-Luigi"];
-var fastcharacters4 = ["16-LittleMac", "17-Pit", "18-CaptainFalcon", "19-Rosalina&Luma","20-Bowser"];
-var fastcharacters5 = ["21-Lucario", "22-ToonLink", "23-Sheik", "24-Ike","25-Shulk"];
-var fastcharacters6 = ["26-Sonic", "27-MegaMan", "28-KingDedede", "29-MetaKnight","30-Robin"];
-var fastcharacters7 = ["31-Lucina", "32-Wario", "33-Charizard", "34-Ness"];
-var listoffastcharacters = [fastcharacters2,fastcharacters3,fastcharacters4,
-			fastcharacters5,fastcharacters6,fastcharacters7];
 
 // Update the owned amiibo listing
 function updateOwnership(character, userId) {
@@ -278,21 +270,18 @@ function fastForEachFunction(item, index) {
 
 	// Pulls the Number attribute
 	var number = document.getElementById(itemName + "-NumberFast");
-	var firebaseCharacterRef = firebaseAmiiboListRef.child(item);
-	var firebaseCharacterNumberRef = firebaseCharacterRef.child("Number");
-	firebaseCharacterNumberRef.on('value', function(snapshot){
+	var firebaseCharacterRef = firebaseFastAmiiboListRef.child(item);
+	firebaseCharacterRef.child("Number").on('value', function(snapshot){
 		number.innerHTML = snapshot.val();
 	});
 	// Pulls the Name attribute
 	var name = document.getElementById(itemName + "-NameFast");
-	var firebaseCharacterNameRef = firebaseCharacterRef.child("Name");
-	firebaseCharacterNameRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Name").on('value', function(snapshot){
 		name.innerHTML = snapshot.val();
 	});
 	// Pulls the Image attribute
 	var image = document.getElementById(itemName + "-ImageFast");
-	var firebaseCharacterImageRef = firebaseCharacterRef.child("Image");
-	firebaseCharacterImageRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Image").on('value', function(snapshot){
 		image.src = snapshot.val();
 		image.onload = function(e) {
 			fastNumberOfAmiibo = fastNumberOfAmiibo + 1;
@@ -300,41 +289,34 @@ function fastForEachFunction(item, index) {
 	});
 	// Pulls the Game Origin attribute
 	var gameOrigin = document.getElementById(itemName + "-GameOriginFast");
-	var firebaseCharacterGameOriginRef = firebaseCharacterRef.child("Game Origin");
-	firebaseCharacterGameOriginRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Game Origin").on('value', function(snapshot){
 		gameOrigin.innerHTML = snapshot.val();
 	});
 	// Pulls the Date Release attribute
 	var dateRelease = document.getElementById(itemName + "-DateReleaseFast");
-	var firebaseCharacterDateReleaseRef = firebaseCharacterRef.child("Date Release");
-	firebaseCharacterDateReleaseRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Date Release").on('value', function(snapshot){
 		dateRelease.innerHTML = snapshot.val();
 	});
 	// Pulls the Wave attribute
 	var wave = document.getElementById(itemName + "-WaveFast");
-	var firebaseCharacterWaveRef = firebaseCharacterRef.child("Wave");
-	firebaseCharacterWaveRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Wave").on('value', function(snapshot){
 		wave.innerHTML = snapshot.val();
 	});
 	// Pulls the Exclusive attribute
 	var exclusive = document.getElementById(itemName + "-ExclusiveFast");
-	var firebaseCharacterExclusiveRef = firebaseCharacterRef.child("Exclusive");
-	firebaseCharacterExclusiveRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Exclusive").on('value', function(snapshot){
 		exclusive.innerHTML = snapshot.val();
 	});
 	// Pulls the Description attribute
 	var description = document.getElementById(itemName + "-DescriptionFast");
-	var firebaseCharacterDescriptionRef = firebaseCharacterRef.child("Description");
-	firebaseCharacterDescriptionRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Description").on('value', function(snapshot){
 		description.innerHTML = snapshot.val();
 	});
 	// Pulls the Rarity attribute
 	var rarity = document.getElementById(itemName + "-RarityFast");
-	var firebaseCharacterRarityRef = firebaseCharacterRef.child("Rarity");
-	firebaseCharacterRarityRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Rarity").on('value', function(snapshot){
 		rarity.innerHTML = snapshot.val();
 	});
-	
 }
 
 // Pulls each attribute of the amiibo
@@ -347,20 +329,17 @@ function forEachFunction(item, index) {
 	// Pulls the Number attribute 
 	var number = document.getElementById(itemName + "-Number");
 	var firebaseCharacterRef = firebaseAmiiboListRef.child(item);
-	var firebaseCharacterNumberRef = firebaseCharacterRef.child("Number");
-	firebaseCharacterNumberRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Number").on('value', function(snapshot){
 		number.innerHTML = snapshot.val();
 	});
 	// Pulls the Name attribute
 	var name = document.getElementById(itemName + "-Name");
-	var firebaseCharacterNameRef = firebaseCharacterRef.child("Name");
-	firebaseCharacterNameRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Name").on('value', function(snapshot){
 		name.innerHTML = snapshot.val();
 	});
 	// Pulls the Image attribute
 	var image = document.getElementById(itemName + "-Image");
-	var firebaseCharacterImageRef = firebaseCharacterRef.child("Image");
-	firebaseCharacterImageRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Image").on('value', function(snapshot){
 		image.src = snapshot.val();
 		image.onload = function(e) {
 			numberOfAmiibo = numberOfAmiibo + 1;
@@ -368,38 +347,32 @@ function forEachFunction(item, index) {
 	});
 	// Pulls the Game Origin attribute
 	var gameOrigin = document.getElementById(itemName + "-GameOrigin");
-	var firebaseCharacterGameOriginRef = firebaseCharacterRef.child("Game Origin");
-	firebaseCharacterGameOriginRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Game Origin").on('value', function(snapshot){
 		gameOrigin.innerHTML = snapshot.val();
 	});
 	// Pulls the Date Release attribute
 	var dateRelease = document.getElementById(itemName + "-DateRelease");
-	var firebaseCharacterDateReleaseRef = firebaseCharacterRef.child("Date Release");
-	firebaseCharacterDateReleaseRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Date Release").on('value', function(snapshot){
 		dateRelease.innerHTML = snapshot.val();
 	});
 	// Pulls the Wave attribute
 	var wave = document.getElementById(itemName + "-Wave");
-	var firebaseCharacterWaveRef = firebaseCharacterRef.child("Wave");
-	firebaseCharacterWaveRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Wave").on('value', function(snapshot){
 		wave.innerHTML = snapshot.val();
 	});
 	// Pulls the Exclusive attribute
 	var exclusive = document.getElementById(itemName + "-Exclusive");
-	var firebaseCharacterExclusiveRef = firebaseCharacterRef.child("Exclusive");
-	firebaseCharacterExclusiveRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Exclusive").on('value', function(snapshot){
 		exclusive.innerHTML = snapshot.val();
 	});
 	// Pulls the Description attribute
 	var description = document.getElementById(itemName + "-Description");
-	var firebaseCharacterDescriptionRef = firebaseCharacterRef.child("Description");
-	firebaseCharacterDescriptionRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Description").on('value', function(snapshot){
 		description.innerHTML = snapshot.val();
 	});
 	// Pulls the Rarity attribute
 	var rarity = document.getElementById(itemName + "-Rarity");
-	var firebaseCharacterRarityRef = firebaseCharacterRef.child("Rarity");
-	firebaseCharacterRarityRef.on('value', function(snapshot){
+	firebaseCharacterRef.child("Rarity").on('value', function(snapshot){
 		rarity.innerHTML = snapshot.val();
 	});
 }
@@ -424,8 +397,6 @@ function waitToFinish3() {
     }
     mainTable.style.display = "block";
     $("#mainTable").DataTable();
-    var fastTable = document.getElementById("fastTable");
-    $('#fastTable').hide();
 }
 function waitToFinish2() {
     if(fastNumberOfAmiibo!=10) {//we want it to match
@@ -442,12 +413,11 @@ function waitToFinish2() {
     	"searching": false,
     	"info": false
     });
-    $("#fastTable").fadeIn();
+    $("#fastTable").show();
+    
     
 }
 if((page.localeCompare("index.html") == 0) || (page.localeCompare("indexsignedin.html") == 0) || !page) {
-	fastcharacters1.forEach(fastForEachFunction);
-	waitToFinish2();
 	characters.forEach(forEachFunction);
     waitToFinish3();
 }
@@ -459,9 +429,10 @@ function markOwnership(item, index, userId) {
 	if(item === "SkipThis" ) {
 		return;
 	}
+	var splitItem = item.split("-");
 	// Validates Ownership
-	var ownership = document.getElementById(item + "-Checked");
-	var userOwnershipRef = firebase.database().ref().child("users").child(userId).child("originalList").child(item);
+	var ownership = document.getElementById(splitItem[1] + "-Checked");
+	var userOwnershipRef = firebase.database().ref().child("users").child(userId).child("originalList").child(splitItem[1]);
 	userOwnershipRef.on('value', function(snapshot){
 		ownership.checked = snapshot.val();
 	});

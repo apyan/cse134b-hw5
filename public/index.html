@@ -12,9 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/modal.css">
     <meta name="theme-color" content="#000080" />
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
-	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
-	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    
   </head>
   <body>
  
@@ -237,11 +235,7 @@
 		</tbody>
 	</table>
 
-	<div id="progress" class="progress">
-		<div id="bar">0%</div>
-		<h3 id="captionPhrases"><i>"That ain't falco!"</i></h3>
-	</div>
-
+	
 	<table id="mainTable" class="mainTable">
 		<caption class="textLine">Your Amiibos</caption>
 		<thead class="directionBar">
@@ -705,17 +699,9 @@
 	</table>
 
 	<script type="text/javascript" src="js/firebase.js"></script>
-
 	<script type="text/javascript" src="js/test.js"></script>
-   <script>
-    if ('serviceWorker' in navigator) {
-      console.log("Will service worker register?");
-      navigator.serviceWorker.register('service-worker.js').then(function(reg){
-        console.log("Yes it did.");
-      }).catch(function(err) {
-        console.log("No it didn't. This happened: ", err)
-      });
-    }
-  </script> 
+	<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
   </body>
 </html>
