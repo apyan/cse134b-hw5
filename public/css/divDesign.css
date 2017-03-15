@@ -4,3 +4,11 @@
 .headerDiv {
   display:inline
 }
+
+.amiiboDexLogo {
+  display: block;
+  width: 30%;
+  height: auto;
+  margin-left: 1.5%;
+  margin-top: 1.5%;
+}
