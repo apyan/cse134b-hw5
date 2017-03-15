@@ -29,7 +29,6 @@
 
 	<div>
 		<br><br><h1 class="textLine_2" id="greeting-line">Welcome, [username]</h1>
-		<a class="textLine_2" href="team.html">Team</a><br><br>
 	</div>
 
 	<!--<button class="modButton" type="button" id="addButton" onclick="location.href='add.html'">Add</button>
@@ -104,11 +103,6 @@
 				<input class="modButton" type="button" value="Add Amiibo" onclick="addAmiibo(authId)">
 			</div>
 		</div>
-	</div>
-
-	<div id="progress" class="progress">
-		<div id="bar">0%</div>
-		<h3 id="captionPhrases"><i>"That ain't falco!"</i></h3>
 	</div>
 
 	<table id="customAmiiboTable" class="customAmiiboTable">
@@ -278,6 +272,11 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<div id="progress" class="progress">
+		<div id="bar">0%</div>
+		<h3 id="captionPhrases"><i>"That ain't falco!"</i></h3>
+	</div>
 
 	<table id="mainTable" class="mainTable">
 		<caption class="textLine">Your Amiibos</caption>
@@ -741,7 +740,7 @@
 		</tbody>
 	</table>
 	<script type="text/javascript" src="js/firebase.js"></script>
-	<script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/test.min.js"></script>
 	<script>
     if ('serviceWorker' in navigator) {
       console.log("Will service worker register?");
@@ -751,6 +750,6 @@
         console.log("No it didn't. This happened: ", err)
       });
     }
-  </script> 
+    </script> 
   </body>
 </html>

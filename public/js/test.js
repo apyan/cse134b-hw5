@@ -59,29 +59,9 @@ var characters = [ "1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
 var fastcharacters1 = ["1-Mario", "2-Peach", "3-Yoshi", "4-DonkeyKong", "5-Link",
 "6-Fox", "7-Samus", "8-WiiFitTrainer", "9-Villager", "10-Pikachu"];
 firebase.auth().onAuthStateChanged(function (user) {
-	// For add.html
-	if(page.localeCompare("add.html") == 0){
-		if(user) {
-			// User is signed in
-			authId = user.uid;
-		} else {
-			// No user is signed in, then redirect to "index.html"
-			// For security reasons
-			window.location.href='index.html';
-		}
-	}
-	// For delete.html
-	else if(page.localeCompare("delete.html") == 0) {
-		if(user) {
-			// User is signed in
-		} else {
-			// No user is signed in, then redirect to "index.html"
-			// For security reasons
-			window.location.href='index.html';
-		}
-	}
+	
 	// For index.html, or default entrance
-	else if((page.localeCompare("index.html") == 0) || (page.localeCompare("") == 0)) {
+	if((page.localeCompare("index.html") == 0) || (page.localeCompare("") == 0)) {
 		if(user) {
 			// User is signed in, redirect to proper page
 			window.location.href='indexsignedin.html';
