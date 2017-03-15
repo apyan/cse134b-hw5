@@ -7,8 +7,17 @@
 
 .amiiboDexLogo {
   display: block;
+  width: 375px;
+  height: 150px;
+  margin-left: 1.5%;
+  margin-top: 1.5%;
+}
+
+.amiiboDexButton {
+  display: block;
   width: 30%;
   height: auto;
+  background: url(images/amiibodex_logo_000.png) no-repeat;
   margin-left: 1.5%;
   margin-top: 1.5%;
 }
