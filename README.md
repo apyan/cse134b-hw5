@@ -35,3 +35,30 @@ The AmiiboDex web application was designed futher to be implemented into smartph
 Given by the image below, after when the AmiiboDex application has been accessed a few times, the Chrome browser would prompt the user to install the AmiiboDex application as a standalone mobile application. This was made possible with a creation of the manifest file, written in JSON, as well as utilizing a JavaScript library provided by Google.
 
 ![Android](/doc_images/Android_Web_App.png)
+
+## Web Application Features
+### Create
+* Users are able to sign up for an account, thus their account is created at the Firebase database.
+* Users can also add amiibos to their list, thus customizing their list to their whim.
+![Add_0](/doc_images/Web_Add_Module.png)
+* After adding the attributes and pressing the confirm button, a newly amiibo has been added! Also, new data will be updated live in Firebase.
+![Add_1](/doc_images/Web_Add_Module_2.png)
+
+### Read
+* Users are able to view their amiibo list and its current status. In regards, the data that is being viewed is pulled from the Firebase database.
+
+### Update
+* Users are able to edit their amiibos, the ones they have added specifically, accordingly to their whim. If there is no amiibo added, the list will appear to be empty.
+![Edit](/doc_images/Web_Edit.png)
+### Delete
+* Users can select one or more amiibos from their custom list and delete them. This will update the data from Firebase.
+![Delete](/doc_images/Web_Delete.png)
+
+## Performance and Optimization
+* Images of the original amiibo listing were resized for a better graphical performance.
+* JavaScript files were minimized for a responsive webpage performance.
+* A Service Worker has been implemented, to ensure a responsive impression of the web application, even upon offline status.
+* Progress bar and spinner were implemented for user responsiveness, also letting the user know that the application is in work.
+
+## Technological Setbacks
+* One of the major setbacks was the asynchronous nature of JavaScript. This can pose many issues code-wise, specifically when one step relies on another. As a result, this can lead to many variable issues in the JavaScript code.
